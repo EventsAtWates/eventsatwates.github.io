@@ -15,21 +15,13 @@ button:focus-visible,a:focus-visible{outline:3px solid #008FA8;outline-offset:2p
 </style>
 
 <style>body{margin:0}
-.preview-tag{position:fixed;left:12px;bottom:12px;z-index:50;padding:8px 14px;border-radius:999px;background:#F9E569;color:#2F2E3F;font:700 13px Figtree,system-ui,sans-serif;box-shadow:0 2px 8px rgba(0,0,0,.2);pointer-events:none}
+.preview-tag{position:fixed;left:12px;bottom:12px;z-index:50;display:inline-flex;align-items:center;min-height:40px;padding:0 14px;border-radius:999px;background:#F9E569;color:#2F2E3F;font:700 13px Figtree,system-ui,sans-serif;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.2)}
+.preview-tag:hover{color:#2F2E3F;text-decoration:underline}
 </style>
 </head>
 <body>
 <div id="app"></div>
 <template id="tpl">
-<helmet>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&amp;family=Lora:ital,wght@0,400;0,500;1,400;1,500&amp;display=swap" rel="stylesheet">
-<style>
-body{margin:0;background:#FAF8F3;color:#2F2E3F;font-family:'Figtree',system-ui,sans-serif}
-a{color:#004156}a:hover{color:#2F2E3F}
-button:focus-visible,a:focus-visible{outline:3px solid #008FA8;outline-offset:2px}
-</style>
-</helmet>
 <div style="font-family: 'Figtree', system-ui, sans-serif; color: #2F2E3F; background: #FAF8F3; min-height: 100vh">
 
   <header style="background: #FFFFFF; border-bottom: 1px solid #E6E1D6">
@@ -41,19 +33,19 @@ button:focus-visible,a:focus-visible{outline:3px solid #008FA8;outline-offset:2p
       </a>
       <nav aria-label="Main" style="display: flex; gap: 24px; flex-wrap: wrap; flex: 1 1 auto; font-size: 16px; font-weight: 600">
         <a href="Dashboard.html" style="color: #2F2E3F; text-decoration: none">My events</a>
-        <a href="Tokens.html" style="color: #2F2E3F; text-decoration: none">My credits</a>
+        <a href="Tokens.html" style="color: #2F2E3F; text-decoration: none">My bookings</a>
         <a href="Interest.html" style="color: #2F2E3F; text-decoration: none">Suggest an event</a>
         <a href="Feedback.html" style="color: #2F2E3F; text-decoration: none">Feedback</a>
+        <a href="Ambassadors.html" style="color: #2F2E3F; text-decoration: none">Ambassadors</a>
       </nav>
-      <a href="Tokens.html" style="display: inline-flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 16px; border-radius: 999px; background: #F9E569; color: #2F2E3F; font-weight: 800; font-size: 15px; text-decoration: none"><span aria-hidden="true" style="width: 22px; height: 22px; border-radius: 50%; background: #2F2E3F; color: #F9E569; display: inline-flex; align-items: center; justify-content: center; font-size: 12px">W</span>{{ balance }} credits left</a>
-      <a href="Tokens.html" aria-label="Your account: Rico Cacciatore" style="width: 44px; height: 44px; border-radius: 50%; background: #2F2E3F; color: #FFFFFF; display: inline-flex; align-items: center; justify-content: center; font-weight: 800; text-decoration: none">RC</a>
+      <a href="Tokens.html" aria-label="Your account: Antony Wadey" style="width: 44px; height: 44px; border-radius: 50%; background: #2F2E3F; color: #FFFFFF; display: inline-flex; align-items: center; justify-content: center; font-weight: 800; text-decoration: none">AW</a>
     </div>
   </header>
 
   <!-- event hero -->
   <section style="background: #C1D1FF; position: relative; overflow: hidden">
     <svg aria-hidden="true" viewBox="0 0 1440 360" preserveAspectRatio="xMaxYMid slice" style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none">
-      <path d="M700 300 C 820 240, 900 340, 1010 280 C 1090 236, 1070 180, 1020 196 C 970 212, 1030 290, 1140 250 S 1180 190, 1268 128" fill="none" stroke="#004156" stroke-width="2.5" stroke-linecap="round"></path><g transform="translate(1262 112) rotate(-16) scale(.9)"><path d="M4 18 C40 4 100 0 146 6 C108 10 80 20 60 36 C52 28 42 24 30 28 C20 28 10 24 4 18Z" fill="#6BB8D0" opacity=".75"/><path d="M4 18 C10 24 20 28 30 28 C42 24 52 28 60 36 C70 22 90 12 118 7 C80 6 40 8 4 18Z" fill="#0092AE"/><path d="M4 18 C40 4 100 0 146 6 C110 5 70 6 36 16 C24 18 14 18 4 18Z" fill="#004156"/></g>
+      <path d="M700 300 C 820 240, 900 340, 1010 280 C 1090 236, 1070 180, 1020 196 C 970 212, 1030 290, 1140 250 S 1180 190, 1268 128" fill="none" stroke="#004156" stroke-width="2.5" stroke-linecap="round"></path><g transform="translate(1262 112) rotate(-16) scale(.9)"><path d="M4 18 C40 4 100 0 146 6 C108 10 80 20 60 36 C52 28 42 24 30 28 C20 28 10 24 4 18Z" fill="#6BB8D0" opacity=".75"></path><path d="M4 18 C10 24 20 28 30 28 C42 24 52 28 60 36 C70 22 90 12 118 7 C80 6 40 8 4 18Z" fill="#0092AE"></path><path d="M4 18 C40 4 100 0 146 6 C110 5 70 6 36 16 C24 18 14 18 4 18Z" fill="#004156"></path></g>
     </svg>
     <div style="position: relative; max-width: 1280px; margin: 0 auto; padding: 40px 32px 56px">
       <nav aria-label="Breadcrumb" style="font-size: 15px; font-weight: 600"><a href="Dashboard.html">My events</a>  /  <span>Thought leadership</span></nav>
@@ -119,10 +111,7 @@ button:focus-visible,a:focus-visible{outline:3px solid #008FA8;outline-offset:2p
     <!-- booking panel -->
     <aside aria-labelledby="book" style="flex: 1 1 340px; min-width: 0; background: #FFFFFF; border-radius: 28px; padding: 30px; display: flex; flex-direction: column; gap: 18px; border: 2px solid #2F2E3F">
       <h2 id="book" style="margin: 0; font-size: 22px; font-weight: 800">Book your place</h2>
-      <div style="display: flex; align-items: center; gap: 16px">
-        <span style="background: #2F2E3F; color: #FFFFFF; border-radius: 18px; padding: 12px 16px; text-align: center"><span style="display: block; font-size: 36px; font-weight: 800; line-height: 1">2</span><span style="display: block; font-size: 13px; font-weight: 600">credits</span></span>
-        <p style="margin: 0; font-size: 16px; line-height: 1.45">About 2 hours of your networking time. You have <strong>{{ balance }}</strong> credits left.</p>
-      </div>
+      <p style="margin: 0; font-size: 16px; line-height: 1.5">Open to everyone at Wates. Your line manager gives each booking a quick approval.</p>
       <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; font-size: 16px">
         <li style="display: flex; justify-content: space-between; gap: 12px"><span>Places left</span><strong>6 of 20</strong></li>
         <li style="display: flex; justify-content: space-between; gap: 12px"><span>External guests confirmed</span><strong>11</strong></li>
@@ -131,14 +120,14 @@ button:focus-visible,a:focus-visible{outline:3px solid #008FA8;outline-offset:2p
 
       <template data-sc="if" value="{{ notBooked }}">
         <div style="display: flex; flex-direction: column; gap: 12px">
-          <button type="button" onClick="{{ book }}" style="min-height: 54px; border-radius: 999px; border: 0; background: #2F2E3F; color: #FFFFFF; font-family: inherit; font-weight: 800; font-size: 17px; cursor: pointer">Book my place · 2 credits</button>
+          <button type="button" onClick="{{ book }}" style="min-height: 54px; border-radius: 999px; border: 0; background: #2F2E3F; color: #FFFFFF; font-family: inherit; font-weight: 800; font-size: 17px; cursor: pointer">Book my place</button>
           <a href="Interest.html" style="display: flex; align-items: center; justify-content: center; min-height: 48px; border-radius: 999px; border: 2px solid #2F2E3F; color: #2F2E3F; font-weight: 700; font-size: 16px; text-decoration: none">Not sure yet? Register interest</a>
         </div>
       </template>
       <template data-sc="if" value="{{ booked }}">
         <div role="status" style="background: #CDE6A7; border-radius: 20px; padding: 18px; display: flex; flex-direction: column; gap: 8px">
           <p style="margin: 0; font-size: 18px; font-weight: 800">Request sent</p>
-          <p style="margin: 0; font-size: 15px; line-height: 1.5">2 credits are booked for you. Your line manager has been asked to approve, and we’ll email you when they do.</p>
+          <p style="margin: 0; font-size: 15px; line-height: 1.5">Your place is held. Your line manager has been asked to approve, and we’ll email you when they do.</p>
           <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 6px">
             <a href="CheckIn.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 999px; background: #2F2E3F; color: #FFFFFF; font-weight: 700; font-size: 15px; text-decoration: none">See my ticket</a>
             <button type="button" onClick="{{ cancel }}" style="min-height: 44px; padding: 0 16px; border-radius: 999px; border: 2px solid #2F2E3F; background: transparent; color: #2F2E3F; font-family: inherit; font-weight: 700; font-size: 15px; cursor: pointer">Cancel booking</button>
@@ -147,8 +136,8 @@ button:focus-visible,a:focus-visible{outline:3px solid #008FA8;outline-offset:2p
       </template>
 
       <div style="background: #FAF8F3; border-radius: 18px; padding: 16px; font-size: 14px; line-height: 1.55">
-        <p style="margin: 0 0 6px; font-weight: 800">Your credits</p>
-        <p style="margin: 0">Cancel by 10 November (48 hours before) and your credits go straight back. If you can’t make it and haven’t cancelled, the hours are released for someone on the waiting list.</p>
+        <p style="margin: 0 0 6px; font-weight: 800">Can’t make it?</p>
+        <p style="margin: 0">Cancel by 10 November so someone on the waiting list can take your place.</p>
       </div>
       <a href="#" style="font-size: 15px; font-weight: 600">Add to Outlook calendar</a>
     </aside>
@@ -167,11 +156,10 @@ class Component extends DCLogic {
     return {
       booked: booked,
       notBooked: !booked,
-      balance: booked ? 7 : 9,
       book: function () { self.setState({ booked: true }); },
       cancel: function () { self.setState({ booked: false }); },
       people: [
-        { initials: 'CL', name: '[Name]', role: 'Head of Development, [Client organisation]', group: 'Client', colour: '#F9E569' },
+        { initials: 'CL', name: '[Name]', role: 'Head of Development, Riverstone Living', group: 'Client', colour: '#F9E569' },
         { initials: 'CC', name: '[Name]', role: 'Partner, [Cost consultancy]', group: 'Cost consultant', colour: '#F7C8B3' },
         { initials: 'DC', name: '[Name]', role: 'Associate Director, [Architecture practice]', group: 'Design consultant', colour: '#CDE6A7' },
         { initials: 'PM', name: '[Name]', role: 'Project Director, [Project management firm]', group: 'Project manager', colour: '#FFC66C' },
@@ -181,7 +169,7 @@ class Component extends DCLogic {
   }
 }
 </script>
-<div class="preview-tag" aria-hidden="true">Concept preview · sample content</div>
+<a class="preview-tag" href="screens.html">Concept preview · sample content · all screens</a>
 <script src="dc.js"></script>
 </body>
 </html>

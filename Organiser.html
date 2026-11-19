@@ -15,21 +15,13 @@ a:focus-visible{outline:3px solid #008FA8;outline-offset:2px}
 </style>
 
 <style>body{margin:0}
-.preview-tag{position:fixed;left:12px;bottom:12px;z-index:50;padding:8px 14px;border-radius:999px;background:#F9E569;color:#2F2E3F;font:700 13px Figtree,system-ui,sans-serif;box-shadow:0 2px 8px rgba(0,0,0,.2);pointer-events:none}
+.preview-tag{position:fixed;left:12px;bottom:12px;z-index:50;display:inline-flex;align-items:center;min-height:40px;padding:0 14px;border-radius:999px;background:#F9E569;color:#2F2E3F;font:700 13px Figtree,system-ui,sans-serif;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.2)}
+.preview-tag:hover{color:#2F2E3F;text-decoration:underline}
 </style>
 </head>
 <body>
 <div id="app"></div>
 <template id="tpl">
-<helmet>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&amp;family=Lora:ital,wght@0,400;0,500;1,400;1,500&amp;display=swap" rel="stylesheet">
-<style>
-body{margin:0;background:#FAF8F3;color:#2F2E3F;font-family:'Figtree',system-ui,sans-serif}
-a{color:#004156}a:hover{color:#2F2E3F}
-a:focus-visible{outline:3px solid #008FA8;outline-offset:2px}
-</style>
-</helmet>
 <div style="font-family: 'Figtree', system-ui, sans-serif; color: #2F2E3F; background: #FAF8F3; min-height: 100vh">
 
   <header style="background: #2F2E3F; color: #FFFFFF">
@@ -38,15 +30,16 @@ a:focus-visible{outline:3px solid #008FA8;outline-offset:2px}
         <img src="assets/logo-white.png" alt="Wates Construction" style="height: 42px; width: auto">
         <span style="width: 1px; height: 32px; background: #6B6A80" aria-hidden="true"></span>
         <span style="font-weight: 800; font-size: 18px">Events at Wates</span>
-        <span style="padding: 4px 10px; border-radius: 999px; background: #F9E569; color: #2F2E3F; font-size: 12px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase">Organiser</span>
+        <span style="padding: 4px 10px; border-radius: 999px; background: #F9E569; color: #2F2E3F; font-size: 12px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase">Admin</span>
       </a>
       <nav aria-label="Organiser" style="display: flex; gap: 24px; flex-wrap: wrap; flex: 1 1 auto; font-size: 16px; font-weight: 600">
         <a href="Organiser.html" aria-current="page" style="color: #FFFFFF; text-decoration: none; border-bottom: 3px solid #F9E569; padding-bottom: 4px">Overview</a>
-        <a href="Interest.html" style="color: #FFFFFF; text-decoration: none">Ideas and interest</a>
-        <a href="Feedback.html" style="color: #FFFFFF; text-decoration: none">Feedback and write-ups</a>
+        <a href="AdminEvents.html" style="color: #FFFFFF; text-decoration: none">Events</a>
+        <a href="AdminApplications.html" style="color: #FFFFFF; text-decoration: none">Ambassadors</a>
+        <a href="AdminClients.html" style="color: #FFFFFF; text-decoration: none">Client targets</a>
         <a href="Dashboard.html" style="color: #FFFFFF; text-decoration: none">Colleague view</a>
       </nav>
-      <a href="#" style="display: inline-flex; align-items: center; min-height: 46px; padding: 0 20px; border-radius: 999px; background: #F9E569; color: #2F2E3F; font-weight: 800; font-size: 15px; text-decoration: none">+ Create event</a>
+      <a href="AdminEvents.html" style="display: inline-flex; align-items: center; min-height: 46px; padding: 0 20px; border-radius: 999px; background: #F9E569; color: #2F2E3F; font-weight: 800; font-size: 15px; text-decoration: none">+ Create event</a>
     </div>
   </header>
 
@@ -62,8 +55,9 @@ a:focus-visible{outline:3px solid #008FA8;outline-offset:2px}
     <div style="margin-top: 28px; display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 16px">
       <div style="background: #FFFFFF; border-radius: 24px; padding: 24px"><p style="margin: 0; font-size: 42px; font-weight: 800">3</p><p style="margin: 6px 0 0; font-size: 15px">Events run so far this year</p></div>
       <div style="background: #FFFFFF; border-radius: 24px; padding: 24px"><p style="margin: 0; font-size: 42px; font-weight: 800">1.2 : 1</p><p style="margin: 6px 0 0; font-size: 15px">External guests per Wates attendee (target 1 : 1)</p></div>
-      <div style="background: #FFFFFF; border-radius: 24px; padding: 24px"><p style="margin: 0; font-size: 42px; font-weight: 800">4%</p><p style="margin: 6px 0 0; font-size: 15px">No-shows: hours released and places re-offered</p></div>
+      <div style="background: #FFFFFF; border-radius: 24px; padding: 24px"><p style="margin: 0; font-size: 42px; font-weight: 800">4%</p><p style="margin: 6px 0 0; font-size: 15px">No-shows: places re-offered to the waiting list</p></div>
       <div style="background: #FFFFFF; border-radius: 24px; padding: 24px"><p style="margin: 0; font-size: 42px; font-weight: 800">2 <span style="font-size: 20px; color: #4B4A5C">of 3</span></p><p style="margin: 6px 0 0; font-size: 15px">Event write-ups shared with the business</p></div>
+      <a href="AdminApplications.html" style="background: #2F2E3F; color: #FFFFFF; border-radius: 24px; padding: 24px; text-decoration: none"><p style="margin: 0; font-size: 42px; font-weight: 800; color: #F9E569">8 <span style="font-size: 20px; color: #E4E2EC">of 15–20</span></p><p style="margin: 6px 0 0; font-size: 15px">Ambassadors selected · 4 applications to review →</p></a>
     </div>
 
     <section aria-labelledby="mix" style="margin-top: 24px; background: #FFFFFF; border-radius: 24px; padding: 26px">
@@ -127,7 +121,7 @@ class Component extends DCLogic {
   }
 }
 </script>
-<div class="preview-tag" aria-hidden="true">Concept preview · sample content</div>
+<a class="preview-tag" href="screens.html">Concept preview · sample content · all screens</a>
 <script src="dc.js"></script>
 </body>
 </html>

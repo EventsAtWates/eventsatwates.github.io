@@ -15,21 +15,13 @@ input:focus-visible,a:focus-visible{outline:3px solid #008FA8;outline-offset:2px
 </style>
 
 <style>body{margin:0}
-.preview-tag{position:fixed;left:12px;bottom:12px;z-index:50;padding:8px 14px;border-radius:999px;background:#F9E569;color:#2F2E3F;font:700 13px Figtree,system-ui,sans-serif;box-shadow:0 2px 8px rgba(0,0,0,.2);pointer-events:none}
+.preview-tag{position:fixed;left:12px;bottom:12px;z-index:50;display:inline-flex;align-items:center;min-height:40px;padding:0 14px;border-radius:999px;background:#F9E569;color:#2F2E3F;font:700 13px Figtree,system-ui,sans-serif;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.2)}
+.preview-tag:hover{color:#2F2E3F;text-decoration:underline}
 </style>
 </head>
 <body>
 <div id="app"></div>
 <template id="tpl">
-<helmet>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&amp;family=Lora:ital,wght@0,400;0,500;1,400;1,500&amp;display=swap" rel="stylesheet">
-<style>
-body{margin:0;background:#FAF8F3;color:#2F2E3F;font-family:'Figtree',system-ui,sans-serif}
-a{color:#004156}a:hover{color:#2F2E3F}
-input:focus-visible,a:focus-visible{outline:3px solid #008FA8;outline-offset:2px}
-</style>
-</helmet>
 <div style="font-family: 'Figtree', system-ui, sans-serif; color: #2F2E3F; background: #FAF8F3; min-height: 900px; display: flex; flex-wrap: wrap">
 
   <div style="flex: 1 1 520px; min-width: 0; background: #2F2E3F; color: #FFFFFF; padding: 48px 56px; display: flex; flex-direction: column; justify-content: space-between; gap: 40px; position: relative; overflow: hidden">
@@ -46,37 +38,71 @@ input:focus-visible,a:focus-visible{outline:3px solid #008FA8;outline-offset:2px
   </div>
 
   <main style="flex: 1 1 520px; min-width: 0; display: flex; align-items: center; justify-content: center; padding: 56px 32px">
-    <form style="width: 100%; max-width: 440px; background: #FFFFFF; border-radius: 28px; padding: 44px 40px; display: flex; flex-direction: column; gap: 20px">
+    <form onSubmit="{{ submit }}" style="width: 100%; max-width: 440px; background: #FFFFFF; border-radius: 28px; padding: 44px 40px; display: flex; flex-direction: column; gap: 20px">
       <div>
         <p style="margin: 0 0 8px; font-size: 14px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #004156">Welcome back</p>
         <h2 style="margin: 0; font-size: 36px; line-height: 1.1; font-weight: 800">Sign in to sign up</h2>
-        <p style="margin: 10px 0 0; font-size: 16px; line-height: 1.5; color: #4B4A5C">Use your Wates email address to book events and see your credits.</p>
+        <p style="margin: 10px 0 0; font-size: 16px; line-height: 1.5; color: #4B4A5C">Use your Wates email address. Wates Ambassadors are taken straight to the ambassador portal.</p>
       </div>
       <div style="display: flex; flex-direction: column; gap: 8px">
         <label for="email" style="font-size: 15px; font-weight: 700">Wates email address</label>
-        <input id="email" type="email" autocomplete="username" value="rico.cacciatore@wates.co.uk" style="min-height: 52px; padding: 0 16px; border-radius: 14px; border: 2px solid #D9D4C7; background: #FAF8F3; font-family: inherit; font-size: 16px; color: #2F2E3F">
+        <input id="email" type="email" autocomplete="username" placeholder="name@wates.co.uk" value="{{ email }}" onChange="{{ setEmail }}" style="min-height: 52px; padding: 0 16px; border-radius: 14px; border: 2px solid #D9D4C7; background: #FAF8F3; font-family: inherit; font-size: 16px; color: #2F2E3F">
       </div>
       <div style="display: flex; flex-direction: column; gap: 8px">
         <div style="display: flex; justify-content: space-between; align-items: baseline">
           <label for="password" style="font-size: 15px; font-weight: 700">Password</label>
           <a href="#" style="font-size: 14px; font-weight: 600">Forgotten your password?</a>
         </div>
-        <input id="password" type="password" autocomplete="current-password" placeholder="Enter your password" style="min-height: 52px; padding: 0 16px; border-radius: 14px; border: 2px solid #D9D4C7; background: #FAF8F3; font-family: inherit; font-size: 16px; color: #2F2E3F">
+        <input id="password" type="password" autocomplete="current-password" placeholder="Enter your password" value="{{ password }}" onChange="{{ setPassword }}" style="min-height: 52px; padding: 0 16px; border-radius: 14px; border: 2px solid #D9D4C7; background: #FAF8F3; font-family: inherit; font-size: 16px; color: #2F2E3F">
       </div>
-      <a href="Dashboard.html" style="display: flex; align-items: center; justify-content: center; min-height: 54px; border-radius: 999px; background: #2F2E3F; color: #FFFFFF; font-weight: 800; font-size: 17px; text-decoration: none; margin-top: 4px">Sign in</a>
+      <template data-sc="if" value="{{ showError }}">
+        <p role="alert" style="margin: 0; padding: 12px 16px; border-radius: 14px; background: #F7C8B3; font-size: 15px; line-height: 1.45">That email and password don’t match an account. Check them and try again.</p>
+      </template>
+      <template data-sc="if" value="{{ isAmbassador }}">
+        <p style="margin: 0; display: flex; align-items: center; gap: 10px; padding: 12px 16px; border-radius: 14px; background: #F6EFDD; font-size: 15px; font-weight: 700; color: #7A5E1C"><span aria-hidden="true" style="width: 12px; height: 12px; border-radius: 50%; background: #C9A54C; box-shadow: 0 0 0 3px #E6CD86"></span>Wates Ambassador: you’ll go to the ambassador portal</p>
+      </template>
+      <a href="{{ target }}" onClick="{{ tryIt }}" style="display: flex; align-items: center; justify-content: center; min-height: 54px; border-radius: 999px; background: {{ btnBg }}; color: {{ btnFg }}; font-weight: 800; font-size: 17px; text-decoration: none; margin-top: 4px">Sign in</a>
       <a href="index.html" style="text-align: center; font-size: 15px; font-weight: 600">Back to all events</a>
+      <a href="AdminSignIn.html" style="text-align: center; font-size: 14px; font-weight: 600; color: #4B4A5C">Admin sign-in</a>
     </form>
   </main>
 </div>
 </template>
 <script type="text/plain" id="logic">
 class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { email: '', password: '', error: false };
+  }
   renderVals() {
-    return {};
+    var self = this;
+    // Prototype only: two demo accounts. A live portal would use Wates single sign-on.
+    var ACCOUNTS = {
+      'rico.cacciatore@wates.co.uk': 'AmbassadorHome.html',
+      'antony.wadey@wates.co.uk': 'Dashboard.html'
+    };
+    var DEMO_PASSWORD = 'Wates123!';
+    var email = (this.state.email || '').trim().toLowerCase();
+    var dest = ACCOUNTS[email];
+    var ok = !!dest && this.state.password === DEMO_PASSWORD;
+    var amb = ok && dest === 'AmbassadorHome.html';
+    return {
+      email: this.state.email,
+      password: this.state.password,
+      setEmail: function (e) { self.setState({ email: e.target.value, error: false }); },
+      setPassword: function (e) { self.setState({ password: e.target.value, error: false }); },
+      target: ok ? dest : '#',
+      tryIt: function (e) { if (!ok) { if (e && e.preventDefault) e.preventDefault(); self.setState({ error: true }); } },
+      submit: function (e) { if (e && e.preventDefault) e.preventDefault(); if (!ok) self.setState({ error: true }); },
+      showError: this.state.error,
+      isAmbassador: amb,
+      btnBg: amb ? '#C9A54C' : '#2F2E3F',
+      btnFg: amb ? '#2F2E3F' : '#FFFFFF'
+    };
   }
 }
 </script>
-<div class="preview-tag" aria-hidden="true">Concept preview · sample content</div>
+<a class="preview-tag" href="screens.html">Concept preview · sample content · all screens</a>
 <script src="dc.js"></script>
 </body>
 </html>

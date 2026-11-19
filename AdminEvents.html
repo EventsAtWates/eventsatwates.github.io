@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Admin: events – Events at Wates</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&amp;family=Lora:ital,wght@0,400;0,500;1,400;1,500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FAF8F3;color:#2F2E3F;font-family:'Figtree',system-ui,sans-serif}
+a{color:#004156}a:hover{color:#2F2E3F}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #008FA8;outline-offset:2px}
+</style>
+
+<style>body{margin:0}
+.preview-tag{position:fixed;left:12px;bottom:12px;z-index:50;display:inline-flex;align-items:center;min-height:40px;padding:0 14px;border-radius:999px;background:#F9E569;color:#2F2E3F;font:700 13px Figtree,system-ui,sans-serif;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.2)}
+.preview-tag:hover{color:#2F2E3F;text-decoration:underline}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<template id="tpl">
+<div style="font-family: 'Figtree', system-ui, sans-serif; color: #2F2E3F; background: #FAF8F3; min-height: 100vh">
+
+  <header style="background: #2F2E3F; color: #FFFFFF">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 14px 32px; display: flex; align-items: center; gap: 28px; flex-wrap: wrap">
+      <a href="Organiser.html" style="display: flex; align-items: center; gap: 16px; text-decoration: none; color: #FFFFFF">
+        <img src="assets/logo-white.png" alt="Wates Construction" style="height: 42px; width: auto">
+        <span style="width: 1px; height: 32px; background: #6B6A80" aria-hidden="true"></span>
+        <span style="font-weight: 800; font-size: 18px">Events at Wates</span>
+        <span style="padding: 4px 10px; border-radius: 999px; background: #F9E569; color: #2F2E3F; font-size: 12px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase">Admin</span>
+      </a>
+      <nav aria-label="Admin" style="display: flex; gap: 24px; flex-wrap: wrap; flex: 1 1 auto; font-size: 16px; font-weight: 600">
+        <a href="Organiser.html" style="color: #FFFFFF; text-decoration: none">Overview</a>
+        <a href="AdminEvents.html" aria-current="page" style="color: #FFFFFF; text-decoration: none; border-bottom: 3px solid #F9E569; padding-bottom: 4px">Events</a>
+        <a href="AdminApplications.html" style="color: #FFFFFF; text-decoration: none">Ambassadors</a>
+        <a href="AdminClients.html" style="color: #FFFFFF; text-decoration: none">Client targets</a>
+        <a href="Dashboard.html" style="color: #FFFFFF; text-decoration: none">Colleague view</a>
+      </nav>
+      <a href="AdminEvents.html" style="display: inline-flex; align-items: center; min-height: 46px; padding: 0 20px; border-radius: 999px; background: #F9E569; color: #2F2E3F; font-weight: 800; font-size: 15px; text-decoration: none">+ Create event</a>
+    </div>
+  </header>
+
+  <main style="max-width: 1280px; margin: 0 auto; padding: 48px 32px 80px; display: flex; flex-direction: column; gap: 48px">
+    <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; flex-wrap: wrap">
+      <div>
+        <p style="margin: 0 0 8px; font-size: 14px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #004156">Admin</p>
+        <h1 style="margin: 0; font-size: 52px; line-height: 1.05; font-weight: 800; letter-spacing: -0.02em">Events</h1>
+        <p style="margin: 12px 0 0; font-family: 'Lora', Georgia, serif; font-size: 22px; line-height: 1.45; color: #004156">List events, choose who can see them, and attach the client targets for ambassadors.</p>
+      </div>
+      <p style="margin: 0; padding: 8px 14px; border-radius: 999px; background: #FFFFFF; border: 2px dashed #B9B3A4; font-size: 14px; font-weight: 700">Sample data for the storyboard</p>
+    </div>
+
+    <!-- events table -->
+    <section aria-labelledby="list">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap">
+        <h2 id="list" style="margin: 0; font-size: 28px; font-weight: 800">All events</h2>
+        <div role="group" aria-label="Filter by audience" style="display: flex; gap: 10px; flex-wrap: wrap">
+          <template data-sc="for" list="{{ filters }}" as="f">
+            <button type="button" onClick="{{ f.pick }}" aria-pressed="{{ f.pressed }}" style="{{ f.chipStyle }}">{{ f.label }}</button>
+          </template>
+        </div>
+      </div>
+      <div style="margin-top: 16px; overflow-x: auto; background: #FFFFFF; border-radius: 24px">
+        <table style="width: 100%; min-width: 1000px; border-collapse: collapse; font-size: 16px">
+          <thead>
+            <tr style="text-align: left; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: #4B4A5C">
+              <th scope="col" style="padding: 18px 22px; font-weight: 700">Event</th>
+              <th scope="col" style="padding: 18px 12px; font-weight: 700">Audience</th>
+              <th scope="col" style="padding: 18px 12px; font-weight: 700">Booked</th>
+              <th scope="col" style="padding: 18px 12px; font-weight: 700">Client targets</th>
+              <th scope="col" style="padding: 18px 12px; font-weight: 700">Status</th>
+              <th scope="col" style="padding: 18px 22px; font-weight: 700"><span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Actions</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <template data-sc="for" list="{{ rows }}" as="r">
+              <tr style="border-top: 1px solid #E6E1D6">
+                <td style="padding: 16px 22px"><span style="display: inline-block; width: 12px; height: 12px; border-radius: 50%; border: 1px solid #2F2E3F; margin-right: 10px; background: {{ r.colour }}" aria-hidden="true"></span><strong>{{ r.title }}</strong><span style="display: block; margin-left: 22px; font-size: 14px; color: #4B4A5C">{{ r.date }}  ·  {{ r.typeLabel }}</span></td>
+                <td style="padding: 16px 12px"><span style="{{ r.audStyle }}">{{ r.audience }}</span></td>
+                <td style="padding: 16px 12px; font-weight: 700">{{ r.booked }}</td>
+                <td style="padding: 16px 12px">{{ r.targets }}</td>
+                <td style="padding: 16px 12px">{{ r.status }}</td>
+                <td style="padding: 16px 22px"><a href="#new" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 999px; border: 2px solid #2F2E3F; color: #2F2E3F; font-weight: 700; font-size: 14px; text-decoration: none">Edit</a></td>
+              </tr>
+            </template>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- create event -->
+    <section id="new" aria-labelledby="create" style="background: #FFFFFF; border-radius: 32px; padding: 40px">
+      <p style="margin: 0 0 8px; font-size: 14px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #004156">New event</p>
+      <h2 id="create" style="margin: 0; font-size: 36px; line-height: 1.1; font-weight: 800; letter-spacing: -0.02em">Create an event</h2>
+      <template data-sc="if" value="{{ notSaved }}">
+        <form onSubmit="{{ publish }}" style="margin-top: 28px; display: flex; flex-direction: column; gap: 26px">
+
+          <fieldset style="margin: 0; padding: 0; border: 0">
+            <legend style="font-size: 15px; font-weight: 700; padding: 0">Who can see and book this event?</legend>
+            <div style="margin-top: 10px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px">
+              <template data-sc="for" list="{{ audiences }}" as="a">
+                <button type="button" onClick="{{ a.pick }}" aria-pressed="{{ a.pressed }}" style="{{ a.style }}"><span style="display: block; font-size: 18px; font-weight: 800">{{ a.title }}</span><span style="display: block; margin-top: 6px; font-size: 15px; font-weight: 500; line-height: 1.45">{{ a.text }}</span></button>
+              </template>
+            </div>
+          </fieldset>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px">
+            <label style="display: block; font-size: 15px; font-weight: 700; grid-column: 1 / -1">Event title<input type="text" placeholder="e.g. Client roundtable: delivering build-to-rent in 2027" style="display: block; margin-top: 6px; width: 100%; box-sizing: border-box; min-height: 48px; border-radius: 14px; border: 2px solid #D9D4C7; background: #FAF8F3; font-family: inherit; font-size: 16px; padding: 0 14px; color: #2F2E3F"></label>
+            <label style="display: block; font-size: 15px; font-weight: 700">Event type
+              <select style="display: block; margin-top: 6px; width: 100%; box-sizing: border-box; min-height: 48px; border-radius: 14px; border: 2px solid #D9D4C7; background: #FAF8F3; font-family: inherit; font-size: 16px; padding: 0 14px; color: #2F2E3F">
+                <option>Thought leadership</option><option>Site visit</option><option>Sports and social</option><option>Drinks and dinner</option><option>Conference</option>
+              </select>
+            </label>
+            <label style="display: block; font-size: 15px; font-weight: 700">Date<input type="date" style="display: block; margin-top: 6px; width: 100%; box-sizing: border-box; min-height: 48px; border-radius: 14px; border: 2px solid #D9D4C7; background: #FAF8F3; font-family: inherit; font-size: 16px; padding: 0 14px; color: #2F2E3F"></label>
+            <label style="display: block; font-size: 15px; font-weight: 700">Start and finish<input type="text" placeholder="e.g. 12:00–14:00" style="display: block; margin-top: 6px; width: 100%; box-sizing: border-box; min-height: 48px; border-radius: 14px; border: 2px solid #D9D4C7; background: #FAF8F3; font-family: inherit; font-size: 16px; padding: 0 14px; color: #2F2E3F"></label>
+            <label style="display: block; font-size: 15px; font-weight: 700">Venue<input type="text" placeholder="Venue name and area" style="display: block; margin-top: 6px; width: 100%; box-sizing: border-box; min-height: 48px; border-radius: 14px; border: 2px solid #D9D4C7; background: #FAF8F3; font-family: inherit; font-size: 16px; padding: 0 14px; color: #2F2E3F"></label>
+            <label style="display: block; font-size: 15px; font-weight: 700">Places for Wates colleagues<input type="number" value="4" style="display: block; margin-top: 6px; width: 100%; box-sizing: border-box; min-height: 48px; border-radius: 14px; border: 2px solid #D9D4C7; background: #FAF8F3; font-family: inherit; font-size: 16px; padding: 0 14px; color: #2F2E3F"></label>
+            <label style="display: block; font-size: 15px; font-weight: 700">External guests expected<input type="number" value="8" style="display: block; margin-top: 6px; width: 100%; box-sizing: border-box; min-height: 48px; border-radius: 14px; border: 2px solid #D9D4C7; background: #FAF8F3; font-family: inherit; font-size: 16px; padding: 0 14px; color: #2F2E3F"></label>
+            <label style="display: block; font-size: 15px; font-weight: 700; grid-column: 1 / -1">Description (shown to everyone who can see the event)<textarea rows="3" style="display: block; margin-top: 6px; width: 100%; box-sizing: border-box; border-radius: 14px; border: 2px solid #D9D4C7; background: #FAF8F3; font-family: inherit; font-size: 16px; padding: 12px 14px; color: #2F2E3F"></textarea></label>
+          </div>
+
+          <template data-sc="if" value="{{ isSpecial }}">
+            <fieldset style="margin: 0; padding: 26px; border: 0; border-radius: 24px; background: #FAF8F3">
+              <legend style="float: left; width: 100%; padding: 0; font-size: 20px; font-weight: 800">Ambassador briefing</legend>
+              <p style="clear: both; margin: 0; padding-top: 6px; font-size: 15px; line-height: 1.55; color: #4B4A5C">Shown only to the ambassadors invited to this event.</p>
+              <p style="margin: 18px 0 10px; font-size: 15px; font-weight: 700">Client targets to attach</p>
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 10px">
+                <label style="display: flex; gap: 12px; align-items: center; padding: 14px 16px; background: #FFFFFF; border-radius: 14px; font-size: 15px"><input type="checkbox" checked style="width: 20px; height: 20px; flex: 0 0 auto">Riverstone Living · Head of Development</label>
+                <label style="display: flex; gap: 12px; align-items: center; padding: 14px 16px; background: #FFFFFF; border-radius: 14px; font-size: 15px"><input type="checkbox" checked style="width: 20px; height: 20px; flex: 0 0 auto">Riverstone Living · Development Manager</label>
+                <label style="display: flex; gap: 12px; align-items: center; padding: 14px 16px; background: #FFFFFF; border-radius: 14px; font-size: 15px"><input type="checkbox" style="width: 20px; height: 20px; flex: 0 0 auto">Harbourline Homes · Land and Partnerships Director</label>
+                <label style="display: flex; gap: 12px; align-items: center; padding: 14px 16px; background: #FFFFFF; border-radius: 14px; font-size: 15px"><input type="checkbox" checked style="width: 20px; height: 20px; flex: 0 0 auto">Calder Moss · Partner</label>
+              </div>
+              <a href="AdminClients.html" style="display: inline-block; margin-top: 12px; font-size: 15px; font-weight: 700">Add or edit client targets →</a>
+              <div style="margin-top: 18px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px">
+                <label style="display: block; font-size: 15px; font-weight: 700">Why we’re going<textarea rows="3" style="display: block; margin-top: 6px; width: 100%; box-sizing: border-box; border-radius: 14px; border: 2px solid #D9D4C7; background: #FAF8F3; font-family: inherit; font-size: 16px; padding: 12px 14px; color: #2F2E3F"></textarea></label>
+                <label style="display: block; font-size: 15px; font-weight: 700">Invite ambassadors
+                  <select style="display: block; margin-top: 6px; width: 100%; box-sizing: border-box; min-height: 48px; border-radius: 14px; border: 2px solid #D9D4C7; background: #FAF8F3; font-family: inherit; font-size: 16px; padding: 0 14px; color: #2F2E3F"><option>All trained ambassadors (9)</option><option>Choose ambassadors…</option></select>
+                </label>
+              </div>
+            </fieldset>
+          </template>
+
+          <div style="display: flex; gap: 12px; flex-wrap: wrap">
+            <button type="submit" style="display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 26px; border-radius: 999px; border: 0; background: #2F2E3F; color: #FFFFFF; font-family: inherit; font-weight: 800; font-size: 16px; cursor: pointer; text-decoration: none">Publish event</button>
+            <button type="button" style="display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 22px; border-radius: 999px; border: 2px solid #2F2E3F; background: transparent; color: #2F2E3F; font-family: inherit; font-weight: 700; font-size: 15px; cursor: pointer; text-decoration: none; min-height: 52px">Save as draft</button>
+          </div>
+        </form>
+      </template>
+      <template data-sc="if" value="{{ saved }}">
+        <div role="status" style="margin-top: 24px; background: #CDE6A7; border-radius: 20px; padding: 24px">
+          <p style="margin: 0; font-size: 22px; font-weight: 800">Event published</p>
+          <p style="margin: 10px 0 0; font-size: 16px; line-height: 1.55">{{ savedText }}</p>
+          <button type="button" onClick="{{ again }}" style="margin-top: 14px; display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 22px; border-radius: 999px; border: 2px solid #2F2E3F; background: transparent; color: #2F2E3F; font-family: inherit; font-weight: 700; font-size: 15px; cursor: pointer; text-decoration: none">Create another event</button>
+        </div>
+      </template>
+    </section>
+  </main>
+</div>
+</template>
+<script type="text/plain" id="logic">
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { filter: 'all', audience: 'special', saved: false };
+  }
+  renderVals() {
+    var self = this;
+    var TYPES = {
+      tl: { label: 'Thought leadership', colour: '#C1D1FF' },
+      site: { label: 'Site visit', colour: '#F9E569' },
+      social: { label: 'Sports and social', colour: '#CDE6A7' },
+      drinks: { label: 'Drinks and dinner', colour: '#F7C8B3' },
+      conf: { label: 'Conference', colour: '#FFC66C' }
+    };
+    var ALL = [
+      { special: false, title: 'London Construction Leaders Summit', date: 'Fri 20 Nov', type: 'conf', booked: '6 of 10', targets: '—', status: 'Published' },
+      { special: true, title: 'Riverstone Living partners’ breakfast', date: 'Tue 24 Nov', type: 'drinks', booked: '3 of 4', targets: '3 attached', status: 'Published' },
+      { special: false, title: 'Five-a-side with clients and consultants', date: 'Thu 26 Nov', type: 'social', booked: '8 of 20', targets: '—', status: 'Published' },
+      { special: false, title: 'Winter drinks with our consultant partners', date: 'Tue 1 Dec', type: 'drinks', booked: '10 of 30', targets: '—', status: 'Published' },
+      { special: true, title: 'London housing awards: Wates client table', date: 'Thu 3 Dec', type: 'drinks', booked: '0 of 2', targets: '5 attached', status: 'Published' },
+      { special: true, title: 'Client roundtable: delivering build-to-rent in 2027', date: 'Thu 14 Jan', type: 'tl', booked: '—', targets: 'None yet', status: 'Draft' },
+      { special: false, title: 'London’s next chapter: market panel', date: 'Wed 20 Jan', type: 'tl', booked: '—', targets: '—', status: 'Interest only' }
+    ];
+    var f = this.state.filter;
+    var rows = ALL.filter(function (r) { return f === 'all' || (f === 'special' ? r.special : !r.special); }).map(function (r) {
+      return Object.assign({}, r, {
+        typeLabel: TYPES[r.type].label,
+        colour: TYPES[r.type].colour,
+        audience: r.special ? 'Ambassadors only' : 'All staff',
+        audStyle: 'display: inline-block; padding: 6px 12px; border-radius: 999px; font-size: 13px; font-weight: 800; white-space: nowrap; ' + (r.special ? 'background: #2F2E3F; color: #F9E569;' : 'background: #FAF8F3; color: #2F2E3F; border: 1px solid #D9D4C7;')
+      });
+    });
+    var chipBase = 'min-height: 44px; padding: 0 18px; border-radius: 999px; font-family: inherit; font-size: 15px; font-weight: 700; cursor: pointer; ';
+    var filters = [['all', 'All events'], ['special', 'Ambassadors only'], ['open', 'All staff']].map(function (p) {
+      var on = f === p[0];
+      return {
+        label: p[1], pressed: on ? 'true' : 'false',
+        chipStyle: chipBase + (on ? 'background: #2F2E3F; color: #FFFFFF; border: 2px solid #2F2E3F' : 'background: #FFFFFF; color: #2F2E3F; border: 2px solid #D9D4C7'),
+        pick: function () { self.setState({ filter: p[0] }); }
+      };
+    });
+    var aud = this.state.audience;
+    var cardBase = 'text-align: left; padding: 20px 22px; border-radius: 20px; font-family: inherit; color: #2F2E3F; cursor: pointer; ';
+    var audiences = [
+      ['open', 'All staff', 'A generic event. Every colleague sees it in their calendar and can book.'],
+      ['special', 'Ambassadors only', 'A special event. Only selected ambassadors see it, with a target briefing.']
+    ].map(function (p) {
+      var on = aud === p[0];
+      return {
+        title: p[1], text: p[2], pressed: on ? 'true' : 'false',
+        style: cardBase + (on ? 'background: #F9E569; border: 3px solid #2F2E3F;' : 'background: #FAF8F3; border: 3px solid #E6E1D6;'),
+        pick: function () { self.setState({ audience: p[0] }); }
+      };
+    });
+    return {
+      rows: rows, filters: filters, audiences: audiences,
+      isSpecial: aud === 'special',
+      saved: this.state.saved, notSaved: !this.state.saved,
+      savedText: aud === 'special' ? 'It now appears in the calendars of the ambassadors you invited, with their briefing and client targets attached.' : 'It now appears in every colleague’s calendar and on the public events page.',
+      publish: function (e) { if (e && e.preventDefault) e.preventDefault(); self.setState({ saved: true }); },
+      again: function () { self.setState({ saved: false }); }
+    };
+  }
+}
+</script>
+<a class="preview-tag" href="screens.html">Concept preview · sample content · all screens</a>
+<script src="dc.js"></script>
+</body>
+</html>

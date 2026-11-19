@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Admin sign-in – Events at Wates</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&amp;family=Lora:ital,wght@0,400;0,500;1,400;1,500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FAF8F3;color:#2F2E3F;font-family:'Figtree',system-ui,sans-serif}
+a{color:#004156}a:hover{color:#2F2E3F}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #008FA8;outline-offset:2px}
+</style>
+
+<style>body{margin:0}
+.preview-tag{position:fixed;left:12px;bottom:12px;z-index:50;display:inline-flex;align-items:center;min-height:40px;padding:0 14px;border-radius:999px;background:#F9E569;color:#2F2E3F;font:700 13px Figtree,system-ui,sans-serif;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.2)}
+.preview-tag:hover{color:#2F2E3F;text-decoration:underline}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<template id="tpl">
+<div style="font-family: 'Figtree', system-ui, sans-serif; color: #2F2E3F; background: #2F2E3F; min-height: 900px; display: flex; align-items: center; justify-content: center; padding: 56px 24px; box-sizing: border-box">
+  <main style="width: 100%; max-width: 980px; display: flex; flex-wrap: wrap; gap: 48px; align-items: center">
+    <div style="flex: 1 1 380px; min-width: 0; color: #FFFFFF">
+      <a href="index.html" style="display: inline-flex; align-items: center; gap: 16px; color: #FFFFFF; text-decoration: none">
+        <img src="assets/logo-white.png" alt="Wates Construction" style="height: 44px; width: auto">
+        <span style="width: 1px; height: 32px; background: #6B6A80" aria-hidden="true"></span>
+        <span style="font-weight: 800; font-size: 18px">Events at Wates</span>
+      </a>
+      <p style="margin: 48px 0 0; display: inline-block; padding: 6px 12px; border-radius: 999px; background: #F9E569; color: #2F2E3F; font-size: 13px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase">Admin</p>
+      <h1 style="margin: 18px 0 0; font-size: 56px; line-height: 1; font-weight: 800; letter-spacing: -0.02em">Admin sign-in</h1>
+      <p style="margin: 18px 0 0; font-family: 'Lora', Georgia, serif; font-size: 21px; line-height: 1.5; color: #E4E2EC">For Wates Next Gen organisers and the senior leadership team. List events, review ambassador applications and keep the client targets up to date.</p>
+    </div>
+    <form style="flex: 1 1 380px; min-width: 0; max-width: 440px; background: #FFFFFF; border-radius: 28px; padding: 40px; display: flex; flex-direction: column; gap: 20px">
+      <h2 style="margin: 0; font-size: 28px; font-weight: 800">Sign in as an admin</h2>
+      <label style="display: block; font-size: 15px; font-weight: 700">Wates email address<input type="email" autocomplete="username" placeholder="name@wates.co.uk" style="display: block; margin-top: 6px; width: 100%; box-sizing: border-box; min-height: 48px; border-radius: 14px; border: 2px solid #D9D4C7; background: #FAF8F3; font-family: inherit; font-size: 16px; padding: 0 14px; color: #2F2E3F; min-height: 52px"></label>
+      <label style="display: block; font-size: 15px; font-weight: 700">Password<input type="password" autocomplete="current-password" placeholder="Enter your password" style="display: block; margin-top: 6px; width: 100%; box-sizing: border-box; min-height: 48px; border-radius: 14px; border: 2px solid #D9D4C7; background: #FAF8F3; font-family: inherit; font-size: 16px; padding: 0 14px; color: #2F2E3F; min-height: 52px"></label>
+      <a href="Organiser.html" style="display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 26px; border-radius: 999px; border: 0; background: #2F2E3F; color: #FFFFFF; font-family: inherit; font-weight: 800; font-size: 16px; cursor: pointer; text-decoration: none; min-height: 54px; font-size: 17px">Sign in</a>
+      <p style="margin: 0; font-size: 14px; line-height: 1.55; color: #4B4A5C">Access is limited to named admins and needs two-step verification. Every change to events, ambassadors and client targets is logged.</p>
+      <a href="SignIn.html" style="text-align: center; font-size: 15px; font-weight: 600">Not an admin? Colleague sign-in</a>
+    </form>
+  </main>
+</div>
+</template>
+<script type="text/plain" id="logic">
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+<a class="preview-tag" href="screens.html">Concept preview · sample content · all screens</a>
+<script src="dc.js"></script>
+</body>
+</html>
