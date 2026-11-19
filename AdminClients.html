@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Admin: client targets – Events at Wates</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&amp;family=Lora:ital,wght@0,400;0,500;1,400;1,500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FAF8F3;color:#2F2E3F;font-family:'Figtree',system-ui,sans-serif}
+a{color:#004156}a:hover{color:#2F2E3F}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #008FA8;outline-offset:2px}
+</style>
+
+<style>body{margin:0}
+.preview-tag{position:fixed;left:12px;bottom:12px;z-index:50;display:inline-flex;align-items:center;min-height:40px;padding:0 14px;border-radius:999px;background:#F9E569;color:#2F2E3F;font:700 13px Figtree,system-ui,sans-serif;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.2)}
+.preview-tag:hover{color:#2F2E3F;text-decoration:underline}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<template id="tpl">
+<div style="font-family: 'Figtree', system-ui, sans-serif; color: #2F2E3F; background: #FAF8F3; min-height: 100vh">
+
+  <header style="background: #2F2E3F; color: #FFFFFF">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 14px 32px; display: flex; align-items: center; gap: 28px; flex-wrap: wrap">
+      <a href="Organiser.html" style="display: flex; align-items: center; gap: 16px; text-decoration: none; color: #FFFFFF">
+        <img src="assets/logo-white.png" alt="Wates Construction" style="height: 42px; width: auto">
+        <span style="width: 1px; height: 32px; background: #6B6A80" aria-hidden="true"></span>
+        <span style="font-weight: 800; font-size: 18px">Events at Wates</span>
+        <span style="padding: 4px 10px; border-radius: 999px; background: #F9E569; color: #2F2E3F; font-size: 12px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase">Admin</span>
+      </a>
+      <nav aria-label="Admin" style="display: flex; gap: 24px; flex-wrap: wrap; flex: 1 1 auto; font-size: 16px; font-weight: 600">
+        <a href="Organiser.html" style="color: #FFFFFF; text-decoration: none">Overview</a>
+        <a href="AdminEvents.html" style="color: #FFFFFF; text-decoration: none">Events</a>
+        <a href="AdminApplications.html" style="color: #FFFFFF; text-decoration: none">Ambassadors</a>
+        <a href="AdminClients.html" aria-current="page" style="color: #FFFFFF; text-decoration: none; border-bottom: 3px solid #F9E569; padding-bottom: 4px">Client targets</a>
+        <a href="Dashboard.html" style="color: #FFFFFF; text-decoration: none">Colleague view</a>
+      </nav>
+      <a href="AdminEvents.html" style="display: inline-flex; align-items: center; min-height: 46px; padding: 0 20px; border-radius: 999px; background: #F9E569; color: #2F2E3F; font-weight: 800; font-size: 15px; text-decoration: none">+ Create event</a>
+    </div>
+  </header>
+
+  <main style="max-width: 1280px; margin: 0 auto; padding: 48px 32px 80px; display: flex; flex-direction: column; gap: 44px">
+    <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; flex-wrap: wrap">
+      <div>
+        <p style="margin: 0 0 8px; font-size: 14px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #004156">Admin</p>
+        <h1 style="margin: 0; font-size: 52px; line-height: 1.05; font-weight: 800; letter-spacing: -0.02em">Client targets</h1>
+        <p style="margin: 12px 0 0; font-family: 'Lora', Georgia, serif; font-size: 22px; line-height: 1.45; color: #004156">The people we most want our ambassadors to meet. Attach them to special events and they appear in the ambassadors’ briefings.</p>
+      </div>
+      <p style="margin: 0; padding: 8px 14px; border-radius: 999px; background: #FFFFFF; border: 2px dashed #B9B3A4; font-size: 14px; font-weight: 700">Sample data for the storyboard</p>
+    </div>
+
+    <section aria-labelledby="list">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap">
+        <h2 id="list" style="margin: 0; font-size: 28px; font-weight: 800">Targets</h2>
+        <div role="group" aria-label="Filter by type" style="display: flex; gap: 10px; flex-wrap: wrap">
+          <template data-sc="for" list="{{ filters }}" as="f">
+            <button type="button" onClick="{{ f.pick }}" aria-pressed="{{ f.pressed }}" style="{{ f.chipStyle }}">{{ f.label }}</button>
+          </template>
+        </div>
+      </div>
+      <div style="margin-top: 16px; overflow-x: auto; background: #FFFFFF; border-radius: 24px">
+        <table style="width: 100%; min-width: 1080px; border-collapse: collapse; font-size: 15px">
+          <thead>
+            <tr style="text-align: left; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: #4B4A5C">
+              <th scope="col" style="padding: 18px 22px; font-weight: 700">Organisation and contact</th>
+              <th scope="col" style="padding: 18px 12px; font-weight: 700">Type</th>
+              <th scope="col" style="padding: 18px 12px; font-weight: 700">Priority</th>
+              <th scope="col" style="padding: 18px 12px; font-weight: 700">Why they matter</th>
+              <th scope="col" style="padding: 18px 12px; font-weight: 700">Relationship owner</th>
+              <th scope="col" style="padding: 18px 22px; font-weight: 700">Next event</th>
+            </tr>
+          </thead>
+          <tbody>
+            <template data-sc="for" list="{{ rows }}" as="r">
+              <tr style="border-top: 1px solid #E6E1D6; vertical-align: top">
+                <td style="padding: 16px 22px"><strong style="display: block; font-size: 16px">{{ r.org }}</strong><span style="display: block; margin-top: 2px; color: #4B4A5C">{{ r.contact }}</span></td>
+                <td style="padding: 16px 12px">{{ r.typeLabel }}</td>
+                <td style="padding: 16px 12px"><span style="{{ r.prioStyle }}">{{ r.priority }}</span></td>
+                <td style="padding: 16px 12px; max-width: 280px; line-height: 1.5">{{ r.why }}</td>
+                <td style="padding: 16px 12px">{{ r.owner }}</td>
+                <td style="padding: 16px 22px">{{ r.next }}</td>
+              </tr>
+            </template>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section aria-labelledby="add" style="display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-start">
+      <div style="flex: 2 1 560px; min-width: 0; background: #FFFFFF; border-radius: 32px; padding: 36px">
+        <p style="margin: 0 0 8px; font-size: 14px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #004156">New target</p>
+        <h2 id="add" style="margin: 0; font-size: 36px; line-height: 1.1; font-weight: 800; letter-spacing: -0.02em">Add a client target</h2>
+        <template data-sc="if" value="{{ notSaved }}">
+          <form onSubmit="{{ save }}" style="margin-top: 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px">
+            <label style="display: block; font-size: 15px; font-weight: 700">Organisation<input type="text" style="display: block; margin-top: 6px; width: 100%; box-sizing: border-box; min-height: 48px; border-radius: 14px; border: 2px solid #D9D4C7; background: #FAF8F3; font-family: inherit; font-size: 16px; padding: 0 14px; color: #2F2E3F"></label>
+            <label style="display: block; font-size: 15px; font-weight: 700">Contact name<input type="text" style="display: block; margin-top: 6px; width: 100%; box-sizing: border-box; min-height: 48px; border-radius: 14px; border: 2px solid #D9D4C7; background: #FAF8F3; font-family: inherit; font-size: 16px; padding: 0 14px; color: #2F2E3F"></label>
+            <label style="display: block; font-size: 15px; font-weight: 700">Job title<input type="text" style="display: block; margin-top: 6px; width: 100%; box-sizing: border-box; min-height: 48px; border-radius: 14px; border: 2px solid #D9D4C7; background: #FAF8F3; font-family: inherit; font-size: 16px; padding: 0 14px; color: #2F2E3F"></label>
+            <label style="display: block; font-size: 15px; font-weight: 700">Type
+              <select style="display: block; margin-top: 6px; width: 100%; box-sizing: border-box; min-height: 48px; border-radius: 14px; border: 2px solid #D9D4C7; background: #FAF8F3; font-family: inherit; font-size: 16px; padding: 0 14px; color: #2F2E3F"><option>Client</option><option>Cost consultant</option><option>Design consultant</option><option>Project manager</option></select>
+            </label>
+            <label style="display: block; font-size: 15px; font-weight: 700">Priority
+              <select style="display: block; margin-top: 6px; width: 100%; box-sizing: border-box; min-height: 48px; border-radius: 14px; border: 2px solid #D9D4C7; background: #FAF8F3; font-family: inherit; font-size: 16px; padding: 0 14px; color: #2F2E3F"><option>High</option><option>Medium</option><option>Watch</option></select>
+            </label>
+            <label style="display: block; font-size: 15px; font-weight: 700">Relationship owner at Wates<input type="text" placeholder="Name and role" style="display: block; margin-top: 6px; width: 100%; box-sizing: border-box; min-height: 48px; border-radius: 14px; border: 2px solid #D9D4C7; background: #FAF8F3; font-family: inherit; font-size: 16px; padding: 0 14px; color: #2F2E3F"></label>
+            <label style="display: block; font-size: 15px; font-weight: 700; grid-column: 1 / -1">Why they matter<textarea rows="2" style="display: block; margin-top: 6px; width: 100%; box-sizing: border-box; border-radius: 14px; border: 2px solid #D9D4C7; background: #FAF8F3; font-family: inherit; font-size: 16px; padding: 12px 14px; color: #2F2E3F"></textarea></label>
+            <label style="display: block; font-size: 15px; font-weight: 700; grid-column: 1 / -1">Talking points for ambassadors<textarea rows="2" placeholder="What to ask about, what to avoid" style="display: block; margin-top: 6px; width: 100%; box-sizing: border-box; border-radius: 14px; border: 2px solid #D9D4C7; background: #FAF8F3; font-family: inherit; font-size: 16px; padding: 12px 14px; color: #2F2E3F"></textarea></label>
+            <div style="grid-column: 1 / -1"><button type="submit" style="display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 26px; border-radius: 999px; border: 0; background: #2F2E3F; color: #FFFFFF; font-family: inherit; font-weight: 800; font-size: 16px; cursor: pointer; text-decoration: none">Save target</button></div>
+          </form>
+        </template>
+        <template data-sc="if" value="{{ saved }}">
+          <div role="status" style="margin-top: 24px; background: #CDE6A7; border-radius: 20px; padding: 22px">
+            <p style="margin: 0; font-size: 20px; font-weight: 800">Target saved</p>
+            <p style="margin: 8px 0 0; font-size: 16px; line-height: 1.55">You can now attach them to a special event, and they’ll appear in that event’s ambassador briefing.</p>
+            <button type="button" onClick="{{ again }}" style="margin-top: 14px; display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 22px; border-radius: 999px; border: 2px solid #2F2E3F; background: transparent; color: #2F2E3F; font-family: inherit; font-weight: 700; font-size: 15px; cursor: pointer; text-decoration: none">Add another</button>
+          </div>
+        </template>
+      </div>
+      <aside style="flex: 1 1 300px; min-width: 0; background: #2F2E3F; color: #FFFFFF; border-radius: 28px; padding: 30px">
+        <h2 style="margin: 0; font-size: 22px; font-weight: 800">Handling client information</h2>
+        <ul style="margin: 16px 0 0; padding-left: 20px; font-size: 15px; line-height: 1.6; color: #E4E2EC">
+          <li>Record business contact details and professional context only.</li>
+          <li>Only admins can see the full list. Ambassadors see just the targets attached to events they’re invited to.</li>
+          <li>Briefings can’t be exported or forwarded.</li>
+          <li>Review each target every 12 months and remove anyone no longer relevant.</li>
+        </ul>
+        <p style="margin: 16px 0 0; font-size: 14px; color: #C1D1FF">To be confirmed with Wates data protection before launch.</p>
+      </aside>
+    </section>
+  </main>
+</div>
+</template>
+<script type="text/plain" id="logic">
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { filter: 'all', saved: false };
+  }
+  renderVals() {
+    var self = this;
+    var TYPES = { client: 'Client', cost: 'Cost consultant', design: 'Design consultant', pm: 'Project manager' };
+    var ALL = [
+      { type: 'client', org: 'Riverstone Living', contact: '[Name] · Head of Development', priority: 'High', why: 'Leads their London pipeline and will shape the [2027 framework].', owner: '[Name], Director', next: 'Partners’ breakfast, 24 Nov' },
+      { type: 'client', org: 'Riverstone Living', contact: '[Name] · Development Manager', priority: 'High', why: 'Runs delivery on their two largest schemes.', owner: '[Name], Operations Manager', next: 'Partners’ breakfast, 24 Nov' },
+      { type: 'client', org: 'Harbourline Homes', contact: '[Name] · Land and Partnerships Director', priority: 'High', why: 'New to London; choosing delivery partners for their first schemes.', owner: '[Name], Bid Director', next: 'Housing awards, 3 Dec' },
+      { type: 'cost', org: 'Calder Moss', contact: '[Name] · Partner', priority: 'Medium', why: 'Advises Riverstone and two other target clients on procurement.', owner: '[Name], Commercial Director', next: 'Partners’ breakfast, 24 Nov' },
+      { type: 'design', org: 'Studio Arden', contact: '[Name] · Associate Director', priority: 'Medium', why: 'Architect on three schemes we’d like to tender for.', owner: '[Name], Design Manager', next: 'Not yet invited' },
+      { type: 'pm', org: 'Pillarpoint PM', contact: '[Name] · Project Director', priority: 'Watch', why: 'Client-side PM for several education frameworks.', owner: '[Name], Senior Project Manager', next: 'Leaders Summit, 20 Nov' }
+    ];
+    var f = this.state.filter;
+    var PRIO = { High: '#F9E569', Medium: '#C1D1FF', Watch: '#FAF8F3' };
+    var rows = ALL.filter(function (r) { return f === 'all' || r.type === f; }).map(function (r) {
+      return Object.assign({}, r, {
+        typeLabel: TYPES[r.type],
+        prioStyle: 'display: inline-block; padding: 6px 12px; border-radius: 999px; font-size: 13px; font-weight: 800; color: #2F2E3F; background: ' + PRIO[r.priority] + ';' + (r.priority === 'Watch' ? ' border: 1px solid #D9D4C7;' : '')
+      });
+    });
+    var chipBase = 'min-height: 44px; padding: 0 18px; border-radius: 999px; font-family: inherit; font-size: 15px; font-weight: 700; cursor: pointer; ';
+    var filters = [['all', 'All'], ['client', 'Clients'], ['cost', 'Cost consultants'], ['design', 'Design consultants'], ['pm', 'Project managers']].map(function (p) {
+      var on = f === p[0];
+      return {
+        label: p[1], pressed: on ? 'true' : 'false',
+        chipStyle: chipBase + (on ? 'background: #2F2E3F; color: #FFFFFF; border: 2px solid #2F2E3F' : 'background: #FFFFFF; color: #2F2E3F; border: 2px solid #D9D4C7'),
+        pick: function () { self.setState({ filter: p[0] }); }
+      };
+    });
+    return {
+      rows: rows, filters: filters,
+      saved: this.state.saved, notSaved: !this.state.saved,
+      save: function (e) { if (e && e.preventDefault) e.preventDefault(); self.setState({ saved: true }); },
+      again: function () { self.setState({ saved: false }); }
+    };
+  }
+}
+</script>
+<a class="preview-tag" href="screens.html">Concept preview · sample content · all screens</a>
+<script src="dc.js"></script>
+</body>
+</html>

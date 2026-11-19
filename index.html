@@ -14,20 +14,13 @@ a{color:#004156}a:hover{color:#2F2E3F}
 </style>
 
 <style>body{margin:0}
-.preview-tag{position:fixed;left:12px;bottom:12px;z-index:50;padding:8px 14px;border-radius:999px;background:#F9E569;color:#2F2E3F;font:700 13px Figtree,system-ui,sans-serif;box-shadow:0 2px 8px rgba(0,0,0,.2);pointer-events:none}
+.preview-tag{position:fixed;left:12px;bottom:12px;z-index:50;display:inline-flex;align-items:center;min-height:40px;padding:0 14px;border-radius:999px;background:#F9E569;color:#2F2E3F;font:700 13px Figtree,system-ui,sans-serif;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.2)}
+.preview-tag:hover{color:#2F2E3F;text-decoration:underline}
 </style>
 </head>
 <body>
 <div id="app"></div>
 <template id="tpl">
-<helmet>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&amp;family=Lora:ital,wght@0,400;0,500;1,400;1,500&amp;display=swap" rel="stylesheet">
-<style>
-body{margin:0;background:#FAF8F3;color:#2F2E3F;font-family:'Figtree',system-ui,sans-serif}
-a{color:#004156}a:hover{color:#2F2E3F}
-</style>
-</helmet>
 <div style="font-family: 'Figtree', system-ui, sans-serif; color: #2F2E3F; background: #FAF8F3; min-height: 100vh">
 
   <!-- header -->
@@ -40,8 +33,9 @@ a{color:#004156}a:hover{color:#2F2E3F}
       </a>
       <nav aria-label="Main" style="display: flex; gap: 28px; flex-wrap: wrap; flex: 1 1 auto; font-size: 16px; font-weight: 600">
         <a href="#events" style="color: #2F2E3F; text-decoration: none">Upcoming events</a>
-        <a href="#credits" style="color: #2F2E3F; text-decoration: none">How credits work</a>
+        <a href="#how" style="color: #2F2E3F; text-decoration: none">How it works</a>
         <a href="Interest.html" style="color: #2F2E3F; text-decoration: none">Suggest an event</a>
+        <a href="#ambassadors" style="color: #2F2E3F; text-decoration: none">Wates Ambassadors</a>
         <a href="#about" style="color: #2F2E3F; text-decoration: none">About Wates Next Gen</a>
       </nav>
       <a href="SignIn.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 22px; border-radius: 999px; border: 2px solid #2F2E3F; color: #2F2E3F; font-weight: 700; font-size: 15px; text-decoration: none">Sign in</a>
@@ -51,17 +45,17 @@ a{color:#004156}a:hover{color:#2F2E3F}
   <!-- hero -->
   <section style="background: #2F2E3F; color: #FFFFFF; position: relative; overflow: hidden">
     <svg aria-hidden="true" viewBox="0 0 1440 600" preserveAspectRatio="xMaxYMid slice" style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none">
-      <path d="M-20 585 C 180 560, 320 598, 520 580 S 800 566, 900 540 S 1100 470, 1180 420 S 1230 300, 1270 268" fill="none" stroke="#008FA8" stroke-width="3" stroke-linecap="round" stroke-opacity="0.6"></path><g transform="translate(1262 256) rotate(-14) scale(1.1)"><path d="M4 18 C40 4 100 0 146 6 C108 10 80 20 60 36 C52 28 42 24 30 28 C20 28 10 24 4 18Z" fill="#9FD6E6" opacity=".75"/><path d="M4 18 C10 24 20 28 30 28 C42 24 52 28 60 36 C70 22 90 12 118 7 C80 6 40 8 4 18Z" fill="#00A9C6"/><path d="M4 18 C40 4 100 0 146 6 C110 5 70 6 36 16 C24 18 14 18 4 18Z" fill="#C1D1FF"/></g>
+      <path d="M-20 585 C 180 560, 320 598, 520 580 S 800 566, 900 540 S 1100 470, 1180 420 S 1230 300, 1270 268" fill="none" stroke="#008FA8" stroke-width="3" stroke-linecap="round" stroke-opacity="0.6"></path><g transform="translate(1262 256) rotate(-14) scale(1.1)"><path d="M4 18 C40 4 100 0 146 6 C108 10 80 20 60 36 C52 28 42 24 30 28 C20 28 10 24 4 18Z" fill="#9FD6E6" opacity=".75"></path><path d="M4 18 C10 24 20 28 30 28 C42 24 52 28 60 36 C70 22 90 12 118 7 C80 6 40 8 4 18Z" fill="#00A9C6"></path><path d="M4 18 C40 4 100 0 146 6 C110 5 70 6 36 16 C24 18 14 18 4 18Z" fill="#C1D1FF"></path></g>
     </svg>
     <div style="position: relative; max-width: 1280px; margin: 0 auto; padding: 88px 32px 72px; display: flex; flex-wrap: wrap; align-items: center; gap: 48px">
       <div style="flex: 1 1 520px; min-width: 0">
         <p style="margin: 0 0 20px; font-size: 15px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #C1D1FF">Wates Next Gen presents</p>
         <h1 style="margin: 0; font-size: clamp(56px, 8vw, 112px); line-height: 0.95; font-weight: 800; letter-spacing: -0.03em">Events <span style="font-family: 'Lora', Georgia, serif; font-style: italic; font-weight: 400; color: #F9E569">at</span> Wates</h1>
         <p style="margin: 28px 0 0; font-family: 'Lora', Georgia, serif; font-size: 26px; line-height: 1.35; color: #FFFFFF; max-width: 560px">Meet the people who shape what we build.</p>
-        <p style="margin: 16px 0 0; font-size: 18px; line-height: 1.6; color: #E4E2EC; max-width: 560px">Socials, site tours and thought-leadership sessions with clients, consultants and project managers, open to everyone at Wates. Everyone at Wates has 12 hours of dedicated networking time each year, and credits make it easy to see how you’re using it.</p>
+        <p style="margin: 16px 0 0; font-size: 18px; line-height: 1.6; color: #E4E2EC; max-width: 560px">Socials, site tours and thought-leadership sessions with clients, consultants and project managers, open to everyone at Wates. Every colleague has 12 hours of dedicated networking time a year, so you can go during working hours.</p>
         <div style="display: flex; gap: 14px; flex-wrap: wrap; margin-top: 36px">
           <a href="#events" style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 28px; border-radius: 999px; background: #F9E569; color: #2F2E3F; font-weight: 800; font-size: 17px; text-decoration: none">See what’s on</a>
-          <a href="#credits" style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 28px; border-radius: 999px; border: 2px solid #FFFFFF; color: #FFFFFF; font-weight: 700; font-size: 17px; text-decoration: none">How credits work</a>
+          <a href="#how" style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 28px; border-radius: 999px; border: 2px solid #FFFFFF; color: #FFFFFF; font-weight: 700; font-size: 17px; text-decoration: none">How it works</a>
         </div>
       </div>
       <div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; align-items: center; gap: 22px">
@@ -84,6 +78,7 @@ a{color:#004156}a:hover{color:#2F2E3F}
       <div>
         <p style="margin: 0 0 10px; font-size: 14px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #004156">Coming up</p>
         <h2 style="margin: 0; font-size: 48px; line-height: 1.05; font-weight: 800; letter-spacing: -0.02em">Upcoming events</h2>
+        <p style="margin: 10px 0 0; font-size: 16px; color: #4B4A5C">Open to everyone at Wates. Wates Ambassadors are also invited to special client events.</p>
       </div>
       <div role="group" aria-label="Filter by event type" style="display: flex; gap: 10px; flex-wrap: wrap">
         <template data-sc="for" list="{{ types }}" as="t">
@@ -101,15 +96,11 @@ a{color:#004156}a:hover{color:#2F2E3F}
               <p style="margin: 10px 0 0; font-size: 44px; line-height: 1; font-weight: 800">{{ ev.day }} <span style="font-size: 22px; font-weight: 700">{{ ev.mon }}</span></p>
               <p style="margin: 6px 0 0; font-size: 15px; font-weight: 600">{{ ev.weekday }}</p>
             </div>
-            <div style="background: #2F2E3F; color: #FFFFFF; border-radius: 16px; padding: 10px 14px; text-align: center; min-width: 64px">
-              <p style="margin: 0; font-size: 26px; font-weight: 800; line-height: 1">{{ ev.credits }}</p>
-              <p style="margin: 4px 0 0; font-size: 12px; font-weight: 600">credits</p>
-            </div>
           </div>
           <div style="padding: 22px 24px 24px; display: flex; flex-direction: column; gap: 10px; flex: 1 1 auto">
             <h3 style="margin: 0; font-size: 22px; line-height: 1.25; font-weight: 700">{{ ev.title }}</h3>
             <p style="margin: 0; font-size: 16px; color: #4B4A5C">{{ ev.time }}  ·  {{ ev.place }}</p>
-            <p style="margin: 0; font-size: 15px; color: #4B4A5C">About {{ ev.credits }} hours of dedicated time  ·  {{ ev.spaces }}</p>
+            <p style="margin: 0; font-size: 15px; color: #4B4A5C">{{ ev.spaces }}</p>
             <div style="margin-top: auto; padding-top: 14px">
               <a href="SignIn.html" style="display: inline-flex; align-items: center; min-height: 46px; padding: 0 22px; border-radius: 999px; background: #2F2E3F; color: #FFFFFF; font-weight: 700; font-size: 15px; text-decoration: none">{{ ev.cta }}</a>
             </div>
@@ -119,41 +110,50 @@ a{color:#004156}a:hover{color:#2F2E3F}
     </div>
   </section>
 
-  <!-- how credits work -->
-  <section id="credits" style="max-width: 1280px; margin: 0 auto; padding: 60px 32px">
+  <!-- call for ambassadors -->
+  <section id="ambassadors" style="max-width: 1280px; margin: 0 auto; padding: 40px 32px 20px">
+    <div style="background: #2F2E3F; color: #FFFFFF; border-radius: 32px; padding: 48px; display: flex; flex-wrap: wrap; gap: 32px; align-items: center; justify-content: space-between">
+      <div style="flex: 1 1 560px; min-width: 0">
+        <p style="margin: 0; display: inline-block; padding: 6px 12px; border-radius: 999px; background: #F9E569; color: #2F2E3F; font-size: 13px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase">Applications open</p>
+        <h2 style="margin: 16px 0 0; font-size: 44px; line-height: 1.05; font-weight: 800; letter-spacing: -0.02em">Call for Wates <span style="font-family: 'Lora', Georgia, serif; font-style: italic; font-weight: 400; color: #F9E569">Ambassadors</span></h2>
+        <p style="margin: 14px 0 0; font-size: 18px; line-height: 1.6; color: #E4E2EC; max-width: 640px">Represent Wates at our key client and industry events. Ambassadors are selected by the senior leadership team, trained in how to network well and who to target, and invited to special events.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px; align-items: flex-start">
+        <a href="SignIn.html" style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 28px; border-radius: 999px; background: #F9E569; color: #2F2E3F; font-weight: 800; font-size: 17px; text-decoration: none">Sign in to apply</a>
+        <p style="margin: 0; font-size: 15px; color: #C1D1FF">Applications close March 2026</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- how booking works -->
+  <section id="how" style="max-width: 1280px; margin: 0 auto; padding: 60px 32px">
     <div style="background: #FFFFFF; border-radius: 32px; padding: 56px 48px">
-      <p style="margin: 0 0 10px; font-size: 14px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #004156">How credits work</p>
-      <h2 style="margin: 0; font-size: 44px; line-height: 1.1; font-weight: 800; letter-spacing: -0.02em">One credit = one hour of dedicated time</h2>
-      <p style="margin: 16px 0 0; font-family: 'Lora', Georgia, serif; font-size: 22px; line-height: 1.45; color: #004156; max-width: 760px">Credits are simply a way to keep track of your dedicated networking time. Each event uses roughly the hours it takes, so you can see at a glance how you’re investing your time.</p>
+      <p style="margin: 0 0 10px; font-size: 14px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #004156">How it works</p>
+      <h2 style="margin: 0; font-size: 44px; line-height: 1.1; font-weight: 800; letter-spacing: -0.02em">Four steps to your next event</h2>
+      <p style="margin: 16px 0 0; font-family: 'Lora', Georgia, serif; font-size: 22px; line-height: 1.45; color: #004156; max-width: 760px">Every event on this page is open to everyone at Wates, and the business gives every colleague 12 hours of dedicated networking time a year to go during working hours.</p>
       <div style="margin-top: 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 20px">
         <div style="background: #C1D1FF; border-radius: 24px; padding: 28px">
           <p style="margin: 0; font-size: 40px; font-weight: 800">01</p>
-          <h3 style="margin: 14px 0 8px; font-size: 20px; font-weight: 700">See your dedicated time</h3>
-          <p style="margin: 0; font-size: 16px; line-height: 1.55">Everyone has 12 hours a year. Senior managers and directors have a little extra, so they can host as well as attend.</p>
+          <h3 style="margin: 14px 0 8px; font-size: 20px; font-weight: 700">Find an event</h3>
+          <p style="margin: 0; font-size: 16px; line-height: 1.55">Browse what’s coming up and filter by the kind of event you want to go to.</p>
         </div>
         <div style="background: #F9E569; border-radius: 24px; padding: 28px">
           <p style="margin: 0; font-size: 40px; font-weight: 800">02</p>
-          <h3 style="margin: 14px 0 8px; font-size: 20px; font-weight: 700">Book an event</h3>
-          <p style="margin: 0; font-size: 16px; line-height: 1.55">Your line manager gives it a quick approval, and the hours are set aside for you until the day.</p>
+          <h3 style="margin: 14px 0 8px; font-size: 20px; font-weight: 700">Book your place</h3>
+          <p style="margin: 0; font-size: 16px; line-height: 1.55">Sign in and book. Your line manager gives it a quick approval as part of your 12 hours of dedicated time.</p>
         </div>
         <div style="background: #CDE6A7; border-radius: 24px; padding: 28px">
           <p style="margin: 0; font-size: 40px; font-weight: 800">03</p>
-          <h3 style="margin: 14px 0 8px; font-size: 20px; font-weight: 700">Turn up and check in</h3>
-          <p style="margin: 0; font-size: 16px; line-height: 1.55">Check in on your phone at the event. That confirms your attendance.</p>
+          <h3 style="margin: 14px 0 8px; font-size: 20px; font-weight: 700">Check in on the day</h3>
+          <p style="margin: 0; font-size: 16px; line-height: 1.55">Check in on your phone at the event so we know you made it.</p>
         </div>
         <div style="background: #F7C8B3; border-radius: 24px; padding: 28px">
           <p style="margin: 0; font-size: 40px; font-weight: 800">04</p>
-          <h3 style="margin: 14px 0 8px; font-size: 20px; font-weight: 700">Can’t make it? Let us know</h3>
-          <p style="margin: 0; font-size: 16px; line-height: 1.55">Plans change. Cancel 48 hours or more before and your credits go straight back. If you can’t make it and haven’t cancelled, the hours are released so someone else can come.</p>
+          <h3 style="margin: 14px 0 8px; font-size: 20px; font-weight: 700">Tell us how it went</h3>
+          <p style="margin: 0; font-size: 16px; line-height: 1.55">Two minutes of feedback on who you met. It goes into the event write-up and your PDR.</p>
         </div>
       </div>
-      <div style="margin-top: 32px; display: flex; flex-wrap: wrap; gap: 12px">
-        <span style="display: inline-flex; align-items: center; gap: 10px; padding: 10px 16px; border-radius: 999px; background: #FAF8F3; font-size: 15px; font-weight: 600"><span aria-hidden="true" style="width: 12px; height: 12px; border-radius: 50%; background: #C1D1FF; border: 1px solid #2F2E3F"></span>Thought leadership · 2 credits</span>
-        <span style="display: inline-flex; align-items: center; gap: 10px; padding: 10px 16px; border-radius: 999px; background: #FAF8F3; font-size: 15px; font-weight: 600"><span aria-hidden="true" style="width: 12px; height: 12px; border-radius: 50%; background: #F9E569; border: 1px solid #2F2E3F"></span>Site visit · 2 credits</span>
-        <span style="display: inline-flex; align-items: center; gap: 10px; padding: 10px 16px; border-radius: 999px; background: #FAF8F3; font-size: 15px; font-weight: 600"><span aria-hidden="true" style="width: 12px; height: 12px; border-radius: 50%; background: #CDE6A7; border: 1px solid #2F2E3F"></span>Sports and social · 3 credits</span>
-        <span style="display: inline-flex; align-items: center; gap: 10px; padding: 10px 16px; border-radius: 999px; background: #FAF8F3; font-size: 15px; font-weight: 600"><span aria-hidden="true" style="width: 12px; height: 12px; border-radius: 50%; background: #F7C8B3; border: 1px solid #2F2E3F"></span>Drinks and dinner · 3 credits</span>
-        <span style="display: inline-flex; align-items: center; gap: 10px; padding: 10px 16px; border-radius: 999px; background: #FAF8F3; font-size: 15px; font-weight: 600"><span aria-hidden="true" style="width: 12px; height: 12px; border-radius: 50%; background: #FFC66C; border: 1px solid #2F2E3F"></span>Conference · 6 credits</span>
-      </div>
+      <p style="margin: 28px 0 0; font-size: 16px; line-height: 1.55; color: #4B4A5C">Can’t make it? Cancel as early as you can so someone on the waiting list can take your place.</p>
     </div>
   </section>
 
@@ -185,7 +185,7 @@ a{color:#004156}a:hover{color:#2F2E3F}
       <nav aria-label="Footer" style="display: flex; gap: 24px; flex-wrap: wrap; font-size: 15px; font-weight: 600">
         <a href="Interest.html" style="color: #FFFFFF">Suggest an event</a>
         <a href="Feedback.html" style="color: #FFFFFF">Give feedback</a>
-        <a href="#credits" style="color: #FFFFFF">Credit rules</a>
+        <a href="#how" style="color: #FFFFFF">How booking works</a>
         <a href="#about" style="color: #FFFFFF">Hospitality policy</a>
       </nav>
       <p style="margin: 0; font-family: 'Lora', Georgia, serif; font-size: 20px; color: #C1D1FF">Reimagining places for people to thrive</p>
@@ -208,12 +208,12 @@ class Component extends DCLogic {
       conf: { label: 'Conference', colour: '#FFC66C' }
     };
     var all = [
-      { day: '12', mon: 'Nov', weekday: 'Thursday', type: 'tl', title: 'Building in the age of AI: breakfast roundtable', time: '08:00–10:00', place: 'The Foundry Rooms, Southwark, London', credits: 2, spaces: '6 places left', cta: 'Sign in to book' },
-      { day: '18', mon: 'Nov', weekday: 'Wednesday', type: 'site', title: 'Site tour of 56 Bishops Avenue and talks from selected product manufacturers such as IGMS', time: '14:00–16:00', place: '56 Bishops Avenue, London N2', credits: 2, spaces: '9 places left', cta: 'Sign in to book' },
-      { day: '20', mon: 'Nov', weekday: 'Friday', type: 'conf', title: 'London Construction Leaders Summit', time: '09:00–15:00', place: 'The Brewery, Chiswell Street, London', credits: 6, spaces: '4 places left', cta: 'Sign in to book' },
-      { day: '26', mon: 'Nov', weekday: 'Thursday', type: 'social', title: 'Five-a-side with clients and consultants', time: '18:00–21:00', place: 'Canal Street Sports Club, King’s Cross, London', credits: 3, spaces: '12 places left', cta: 'Sign in to book' },
-      { day: '1', mon: 'Dec', weekday: 'Tuesday', type: 'drinks', title: 'Winter drinks with our consultant partners', time: '18:00–21:00', place: 'The Albion Rooftop, Shoreditch, London', credits: 3, spaces: '20 places left', cta: 'Sign in to book' },
-      { day: '20', mon: 'Jan', weekday: 'Wednesday', type: 'tl', title: 'London’s next chapter: market panel', time: '17:30–19:30', place: 'The Pearson Hall, Holborn, London', credits: 2, spaces: 'Booking opens 1 Dec', cta: 'Sign in to register interest' }
+      { day: '12', mon: 'Nov', weekday: 'Thursday', type: 'tl', title: 'Building in the age of AI: breakfast roundtable', time: '08:00–10:00', place: 'The Foundry Rooms, Southwark, London', spaces: '6 places left', cta: 'Sign in to book' },
+      { day: '18', mon: 'Nov', weekday: 'Wednesday', type: 'site', title: 'Site tour of 56 Bishops Avenue and talks from selected product manufacturers such as IGMS', time: '14:00–16:00', place: '56 Bishops Avenue, London N2', spaces: '9 places left', cta: 'Sign in to book' },
+      { day: '20', mon: 'Nov', weekday: 'Friday', type: 'conf', title: 'London Construction Leaders Summit', time: '09:00–15:00', place: 'The Brewery, Chiswell Street, London', spaces: '4 places left', cta: 'Sign in to book' },
+      { day: '26', mon: 'Nov', weekday: 'Thursday', type: 'social', title: 'Five-a-side with clients and consultants', time: '18:00–21:00', place: 'Canal Street Sports Club, King’s Cross, London', spaces: '12 places left', cta: 'Sign in to book' },
+      { day: '1', mon: 'Dec', weekday: 'Tuesday', type: 'drinks', title: 'Winter drinks with our consultant partners', time: '18:00–21:00', place: 'The Albion Rooftop, Shoreditch, London', spaces: '20 places left', cta: 'Sign in to book' },
+      { day: '20', mon: 'Jan', weekday: 'Wednesday', type: 'tl', title: 'London’s next chapter: market panel', time: '17:30–19:30', place: 'The Pearson Hall, Holborn, London', spaces: 'Booking opens 1 Dec', cta: 'Sign in to register interest' }
     ];
     var self = this;
     var f = this.state.filter;
@@ -235,7 +235,7 @@ class Component extends DCLogic {
   }
 }
 </script>
-<div class="preview-tag" aria-hidden="true">Concept preview · sample content</div>
+<a class="preview-tag" href="screens.html">Concept preview · sample content · all screens</a>
 <script src="dc.js"></script>
 </body>
 </html>

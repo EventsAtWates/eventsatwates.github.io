@@ -15,21 +15,13 @@ input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-vis
 </style>
 
 <style>body{margin:0}
-.preview-tag{position:fixed;left:12px;bottom:12px;z-index:50;padding:8px 14px;border-radius:999px;background:#F9E569;color:#2F2E3F;font:700 13px Figtree,system-ui,sans-serif;box-shadow:0 2px 8px rgba(0,0,0,.2);pointer-events:none}
+.preview-tag{position:fixed;left:12px;bottom:12px;z-index:50;display:inline-flex;align-items:center;min-height:40px;padding:0 14px;border-radius:999px;background:#F9E569;color:#2F2E3F;font:700 13px Figtree,system-ui,sans-serif;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.2)}
+.preview-tag:hover{color:#2F2E3F;text-decoration:underline}
 </style>
 </head>
 <body>
 <div id="app"></div>
 <template id="tpl">
-<helmet>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&amp;family=Lora:ital,wght@0,400;0,500;1,400;1,500&amp;display=swap" rel="stylesheet">
-<style>
-body{margin:0;background:#FAF8F3;color:#2F2E3F;font-family:'Figtree',system-ui,sans-serif}
-a{color:#004156}a:hover{color:#2F2E3F}
-input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-visible,a:focus-visible{outline:3px solid #008FA8;outline-offset:2px}
-</style>
-</helmet>
 <div style="font-family: 'Figtree', system-ui, sans-serif; color: #2F2E3F; background: #FAF8F3; min-height: 100vh">
 
   <header style="background: #FFFFFF; border-bottom: 1px solid #E6E1D6">
@@ -41,12 +33,12 @@ input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-vis
       </a>
       <nav aria-label="Main" style="display: flex; gap: 24px; flex-wrap: wrap; flex: 1 1 auto; font-size: 16px; font-weight: 600">
         <a href="Dashboard.html" style="color: #2F2E3F; text-decoration: none">My events</a>
-        <a href="Tokens.html" style="color: #2F2E3F; text-decoration: none">My credits</a>
+        <a href="Tokens.html" style="color: #2F2E3F; text-decoration: none">My bookings</a>
         <a href="Interest.html" style="color: #2F2E3F; text-decoration: none">Suggest an event</a>
         <a href="Feedback.html" aria-current="page" style="color: #2F2E3F; text-decoration: none; border-bottom: 3px solid #008FA8; padding-bottom: 4px">Feedback</a>
+        <a href="Ambassadors.html" style="color: #2F2E3F; text-decoration: none">Ambassadors</a>
       </nav>
-      <a href="Tokens.html" style="display: inline-flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 16px; border-radius: 999px; background: #F9E569; color: #2F2E3F; font-weight: 800; font-size: 15px; text-decoration: none"><span aria-hidden="true" style="width: 22px; height: 22px; border-radius: 50%; background: #2F2E3F; color: #F9E569; display: inline-flex; align-items: center; justify-content: center; font-size: 12px">W</span>9 credits left</a>
-      <a href="Tokens.html" aria-label="Your account: Rico Cacciatore" style="width: 44px; height: 44px; border-radius: 50%; background: #2F2E3F; color: #FFFFFF; display: inline-flex; align-items: center; justify-content: center; font-weight: 800; text-decoration: none">RC</a>
+      <a href="Tokens.html" aria-label="Your account: Antony Wadey" style="width: 44px; height: 44px; border-radius: 50%; background: #2F2E3F; color: #FFFFFF; display: inline-flex; align-items: center; justify-content: center; font-weight: 800; text-decoration: none">AW</a>
     </div>
   </header>
 
@@ -71,7 +63,7 @@ input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-vis
           </fieldset>
 
           <fieldset style="border: 0; margin: 0; padding: 0">
-            <legend style="font-size: 18px; font-weight: 800; margin-bottom: 14px">2. Was it worth the 3 credits?</legend>
+            <legend style="font-size: 18px; font-weight: 800; margin-bottom: 14px">2. Was it worth your time?</legend>
             <div style="display: flex; gap: 10px; flex-wrap: wrap">
               <label style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px; border-radius: 999px; border: 2px solid #D9D4C7; font-size: 16px; font-weight: 600"><input type="radio" name="worth" checked style="accent-color: #2F2E3F">Yes, definitely</label>
               <label style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px; border-radius: 999px; border: 2px solid #D9D4C7; font-size: 16px; font-weight: 600"><input type="radio" name="worth" style="accent-color: #2F2E3F">Partly</label>
@@ -130,12 +122,12 @@ input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-vis
       <div style="background: #CDE6A7; border-radius: 28px; padding: 28px">
         <p style="margin: 0; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase">Sports and social</p>
         <p style="margin: 10px 0 0; font-size: 22px; font-weight: 800; line-height: 1.25">Charity quiz night with consultants</p>
-        <p style="margin: 8px 0 0; font-size: 15px">Thursday 15 October  ·  3 credits used</p>
+        <p style="margin: 8px 0 0; font-size: 15px">Thursday 15 October  ·  Attended</p>
         <p style="margin: 8px 0 0; font-size: 15px">Checked in at 18:12</p>
       </div>
       <div style="background: #2F2E3F; color: #FFFFFF; border-radius: 28px; padding: 28px">
         <p style="margin: 0; font-size: 18px; font-weight: 800">Why we ask</p>
-        <p style="margin: 10px 0 0; font-size: 15px; line-height: 1.6; color: #E4E2EC">Every event gets a short write-up shared across the business. Your answers also feed the quarterly report showing what the 12 hours of networking time is achieving.</p>
+        <p style="margin: 10px 0 0; font-size: 15px; line-height: 1.6; color: #E4E2EC">Every event gets a short write-up shared across the business. Your answers also feed the quarterly report showing what our networking is achieving.</p>
       </div>
     </aside>
   </main>
@@ -168,7 +160,7 @@ class Component extends DCLogic {
   }
 }
 </script>
-<div class="preview-tag" aria-hidden="true">Concept preview · sample content</div>
+<a class="preview-tag" href="screens.html">Concept preview · sample content · all screens</a>
 <script src="dc.js"></script>
 </body>
 </html>

@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Ambassador portal – Events at Wates</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&amp;family=Lora:ital,wght@0,400;0,500;1,400;1,500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FAF8F3;color:#2F2E3F;font-family:'Figtree',system-ui,sans-serif}
+a{color:#004156}a:hover{color:#2F2E3F}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #008FA8;outline-offset:2px}
+</style>
+
+<style>body{margin:0}
+.preview-tag{position:fixed;left:12px;bottom:12px;z-index:50;display:inline-flex;align-items:center;min-height:40px;padding:0 14px;border-radius:999px;background:#F9E569;color:#2F2E3F;font:700 13px Figtree,system-ui,sans-serif;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.2)}
+.preview-tag:hover{color:#2F2E3F;text-decoration:underline}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<template id="tpl">
+<div style="font-family: 'Figtree', system-ui, sans-serif; color: #2F2E3F; background: #FAF8F3; min-height: 100vh">
+
+  <header style="background: #2F2E3F; color: #FFFFFF; border-bottom: 3px solid #C9A54C">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 14px 32px; display: flex; align-items: center; gap: 28px; flex-wrap: wrap">
+      <a href="index.html" style="display: flex; align-items: center; gap: 16px; text-decoration: none; color: #FFFFFF">
+        <img src="assets/logo-white.png" alt="Wates Construction" style="height: 42px; width: auto">
+        <span style="width: 1px; height: 32px; background: #6B6A80" aria-hidden="true"></span>
+        <span style="display: flex; align-items: center; gap: 10px"><svg aria-hidden="true" width="34" height="34" viewBox="0 0 120 120" style="flex: 0 0 auto; display: block"><defs><linearGradient id="hdrpinr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F3E3AE"></stop><stop offset="0.45" stop-color="#C9A54C"></stop><stop offset="0.7" stop-color="#E6CD86"></stop><stop offset="1" stop-color="#9C7A2B"></stop></linearGradient><linearGradient id="hdrpins" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#9C7A2B"></stop><stop offset="1" stop-color="#F3E3AE"></stop></linearGradient></defs><circle cx="60" cy="60" r="57" fill="url(#hdrpinr)"></circle><circle cx="60" cy="60" r="47" fill="#2F2E3F"></circle><circle cx="60" cy="60" r="41" fill="none" stroke="#C9A54C" stroke-width="1" stroke-opacity="0.7"></circle><g transform="translate(27 50) scale(0.48)"><path d="M4 18 C40 4 100 0 146 6 C108 10 80 20 60 36 C52 28 42 24 30 28 C20 28 10 24 4 18Z" fill="#E6CD86" opacity=".55"></path><path d="M4 18 C10 24 20 28 30 28 C42 24 52 28 60 36 C70 22 90 12 118 7 C80 6 40 8 4 18Z" fill="url(#hdrpins)"></path><path d="M4 18 C40 4 100 0 146 6 C110 5 70 6 36 16 C24 18 14 18 4 18Z" fill="#F3E3AE"></path></g><path d="M30 78 Q60 90 90 78" fill="none" stroke="#C9A54C" stroke-width="1.5" stroke-linecap="round" stroke-opacity="0.8"></path><ellipse cx="44" cy="28" rx="16" ry="5" fill="#FFFFFF" opacity="0.18" transform="rotate(-28 44 28)"></ellipse></svg><span style="display: flex; flex-direction: column; line-height: 1.1"><span style="font-weight: 800; font-size: 18px">Events at Wates</span><span style="font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #E6CD86">Ambassador portal</span></span></span>
+      </a>
+      <nav aria-label="Main" style="display: flex; gap: 24px; flex-wrap: wrap; flex: 1 1 auto; font-size: 16px; font-weight: 600">
+        <a href="AmbassadorHome.html" aria-current="page" style="color: #FFFFFF; text-decoration: none; border-bottom: 3px solid #C9A54C; padding-bottom: 4px">My events</a>
+        <a href="AmbassadorHome.html#cal" style="color: #FFFFFF; text-decoration: none">My calendar</a>
+        <a href="AmbassadorEvent.html" style="color: #FFFFFF; text-decoration: none">Briefings</a>
+        <a href="AmbassadorHome.html#training" style="color: #FFFFFF; text-decoration: none">Training</a>
+      </nav>
+      <a href="AmbassadorHome.html" aria-label="Your account: Rico Cacciatore, Wates Ambassador" style="width: 44px; height: 44px; border-radius: 50%; background: #2F2E3F; color: #FFFFFF; display: inline-flex; align-items: center; justify-content: center; font-weight: 800; text-decoration: none; box-shadow: 0 0 0 2px #C9A54C">RC</a>
+    </div>
+  </header>
+
+  <!-- ambassador hero -->
+  <section style="background: linear-gradient(180deg, #2F2E3F 0%, #2F2E3F 72%, #FAF8F3 72%, #FAF8F3 100%)">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 48px 32px 0">
+      <div style="background: #2F2E3F; color: #FFFFFF; border-radius: 32px; padding: 40px 44px; display: flex; flex-wrap: wrap; gap: 32px; align-items: center; justify-content: space-between; box-shadow: inset 0 0 0 2px #C9A54C">
+        <div style="flex: 1 1 520px; min-width: 0">
+          <p style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #E6CD86">Wates Ambassador  ·  London cohort 2026</p>
+          <h1 style="margin: 14px 0 0; font-size: 56px; line-height: 1.02; font-weight: 800; letter-spacing: -0.02em">Welcome back, <span style="font-family: 'Lora', Georgia, serif; font-style: italic; font-weight: 400; color: #E6CD86">Rico</span></h1>
+          <p style="margin: 16px 0 0; font-family: 'Lora', Georgia, serif; font-size: 21px; line-height: 1.45; color: #E4E2EC; max-width: 640px">Ambassador events with pipeline stakeholders are marked in gold in your calendar, alongside the events open to everyone.</p>
+        </div>
+        <svg role="img" aria-label="Wates Ambassador pin badge" width="168" height="168" viewBox="0 0 120 120" style="flex: 0 0 auto; display: block"><defs><linearGradient id="heropinr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F3E3AE"></stop><stop offset="0.45" stop-color="#C9A54C"></stop><stop offset="0.7" stop-color="#E6CD86"></stop><stop offset="1" stop-color="#9C7A2B"></stop></linearGradient><linearGradient id="heropins" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#9C7A2B"></stop><stop offset="1" stop-color="#F3E3AE"></stop></linearGradient></defs><circle cx="60" cy="60" r="57" fill="url(#heropinr)"></circle><circle cx="60" cy="60" r="47" fill="#2F2E3F"></circle><circle cx="60" cy="60" r="41" fill="none" stroke="#C9A54C" stroke-width="1" stroke-opacity="0.7"></circle><g transform="translate(27 50) scale(0.48)"><path d="M4 18 C40 4 100 0 146 6 C108 10 80 20 60 36 C52 28 42 24 30 28 C20 28 10 24 4 18Z" fill="#E6CD86" opacity=".55"></path><path d="M4 18 C10 24 20 28 30 28 C42 24 52 28 60 36 C70 22 90 12 118 7 C80 6 40 8 4 18Z" fill="url(#heropins)"></path><path d="M4 18 C40 4 100 0 146 6 C110 5 70 6 36 16 C24 18 14 18 4 18Z" fill="#F3E3AE"></path></g><path d="M30 78 Q60 90 90 78" fill="none" stroke="#C9A54C" stroke-width="1.5" stroke-linecap="round" stroke-opacity="0.8"></path><ellipse cx="44" cy="28" rx="16" ry="5" fill="#FFFFFF" opacity="0.18" transform="rotate(-28 44 28)"></ellipse></svg>
+      </div>
+    </div>
+  </section>
+
+  <main style="max-width: 1280px; margin: 0 auto; padding: 40px 32px 80px; background: transparent">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px">
+
+      <!-- next special event -->
+      <section aria-labelledby="next" style="background: #F6EFDD; border-radius: 28px; padding: 30px; display: flex; flex-direction: column; gap: 12px; box-shadow: inset 0 0 0 2px #C9A54C">
+        <h2 id="next" style="margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #7A5E1C">Next ambassador event</h2>
+        <p style="margin: 0; font-size: 40px; line-height: 1; font-weight: 800">Tue 24 Nov</p>
+        <p style="margin: 0; font-size: 22px; line-height: 1.25; font-weight: 700">Riverstone Living partners’ breakfast</p>
+        <p style="margin: 0; font-size: 15px; color: #4B4A5C">08:00–10:00  ·  The Mercer Room, Clerkenwell  ·  Invitation only</p>
+        <div style="margin-top: auto; padding-top: 8px"><a href="AmbassadorEvent.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border-radius: 999px; background: #2F2E3F; color: #E6CD86; font-weight: 800; font-size: 15px; text-decoration: none">Read the target briefing</a></div>
+      </section>
+
+      <!-- training -->
+      <section id="training" aria-labelledby="train" style="background: #FFFFFF; border-radius: 28px; padding: 30px; display: flex; flex-direction: column; gap: 14px">
+        <h2 id="train" style="margin: 0; font-size: 18px; font-weight: 700">Targeted training</h2>
+        <p style="margin: 0; display: flex; align-items: baseline; gap: 10px"><span style="font-size: 64px; line-height: 0.9; font-weight: 800">2</span><span style="font-size: 18px; font-weight: 600; color: #4B4A5C">of 3 modules done</span></p>
+        <div aria-hidden="true" style="display: flex; height: 10px; border-radius: 999px; overflow: hidden; background: #E6E1D6"><span style="width: 67%; background: #C9A54C"></span></div>
+        <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; font-size: 15px">
+          <li style="display: flex; justify-content: space-between; gap: 10px"><span>Networking with purpose</span><strong>Done</strong></li>
+          <li style="display: flex; justify-content: space-between; gap: 10px"><span>Knowing our clients and who to target</span><strong>Done</strong></li>
+          <li style="display: flex; justify-content: space-between; gap: 10px"><span>Following up and logging outcomes</span><span style="color: #4B4A5C">40 min</span></li>
+        </ul>
+        <a href="#" style="margin-top: auto; display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 22px; border-radius: 999px; border: 2px solid #2F2E3F; background: transparent; color: #2F2E3F; font-family: inherit; font-weight: 700; font-size: 15px; cursor: pointer; text-decoration: none">Continue training</a>
+      </section>
+
+      <!-- ambassador year -->
+      <section aria-labelledby="yr" style="background: #FFFFFF; border-radius: 28px; padding: 30px; display: flex; flex-direction: column; gap: 14px">
+        <h2 id="yr" style="margin: 0; font-size: 18px; font-weight: 700">My ambassador year</h2>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px">
+          <div style="background: #F6EFDD; border-radius: 18px; padding: 16px"><p style="margin: 0; font-size: 40px; font-weight: 800; line-height: 1">1</p><p style="margin: 8px 0 0; font-size: 14px; line-height: 1.4">ambassador event attended</p></div>
+          <div style="background: #F6EFDD; border-radius: 18px; padding: 16px"><p style="margin: 0; font-size: 40px; font-weight: 800; line-height: 1">3</p><p style="margin: 8px 0 0; font-size: 14px; line-height: 1.4">targets met</p></div>
+          <div style="background: #F6EFDD; border-radius: 18px; padding: 16px"><p style="margin: 0; font-size: 40px; font-weight: 800; line-height: 1">2</p><p style="margin: 8px 0 0; font-size: 14px; line-height: 1.4">follow-ups logged</p></div>
+        </div>
+        <p style="margin: auto 0 0; font-size: 15px; line-height: 1.5; color: #4B4A5C">Reported to the SLT each quarter and recorded in your PDR.</p>
+      </section>
+    </div>
+
+    <!-- calendar -->
+    <section aria-labelledby="cal" style="margin-top: 56px">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; flex-wrap: wrap">
+        <div>
+          <p style="margin: 0 0 8px; font-size: 14px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #004156">My calendar</p>
+          <h2 id="cal" style="margin: 0; font-size: 36px; line-height: 1.1; font-weight: 800; letter-spacing: -0.02em">November 2026</h2>
+        </div>
+        <div role="group" aria-label="Show events" style="display: flex; gap: 10px; flex-wrap: wrap">
+          <template data-sc="for" list="{{ views }}" as="v">
+            <button type="button" onClick="{{ v.pick }}" aria-pressed="{{ v.pressed }}" style="{{ v.chipStyle }}">{{ v.label }}</button>
+          </template>
+        </div>
+      </div>
+
+      <div style="margin-top: 14px; display: flex; flex-wrap: wrap; gap: 18px; font-size: 14px; font-weight: 600; color: #4B4A5C">
+        <span style="display: inline-flex; align-items: center; gap: 8px"><span aria-hidden="true" style="width: 28px; height: 16px; border-radius: 6px; background: #2F2E3F; box-shadow: inset 0 0 0 2px #C9A54C"></span>Ambassador event</span>
+        <span style="display: inline-flex; align-items: center; gap: 8px"><span aria-hidden="true" style="width: 28px; height: 16px; border-radius: 6px; background: #C1D1FF"></span>Open to all</span>
+        <span style="display: inline-flex; align-items: center; gap: 8px"><span aria-hidden="true" style="width: 28px; height: 16px; border-radius: 6px; background: #FFFFFF; box-shadow: inset 0 0 0 2px #2F2E3F"></span>Booked</span>
+      </div>
+
+      <div style="margin-top: 16px; overflow-x: auto; border-radius: 24px; background: #FFFFFF">
+        <div style="min-width: 840px; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr))">
+          <template data-sc="for" list="{{ weekdays }}" as="w">
+            <div style="padding: 14px 12px; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #4B4A5C; border-bottom: 1px solid #E6E1D6">{{ w }}</div>
+          </template>
+          <template data-sc="for" list="{{ cells }}" as="c">
+            <div style="{{ c.cellStyle }}">
+              <p style="{{ c.numStyle }}">{{ c.n }}</p>
+              <template data-sc="for" list="{{ c.events }}" as="e">
+                <a href="{{ e.href }}" style="{{ e.pillStyle }}"><span style="{{ e.tagStyle }}">{{ e.tag }}</span><span style="display: block; font-weight: 700">{{ e.short }}</span><span style="display: block; font-size: 12px; font-weight: 600; opacity: 0.85">{{ e.time }}{{ e.mark }}</span></a>
+              </template>
+            </div>
+          </template>
+        </div>
+      </div>
+    </section>
+
+    <!-- list -->
+    <section aria-labelledby="list" style="margin-top: 48px">
+      <h2 id="list" style="margin: 0 0 16px; font-size: 28px; font-weight: 800">Coming up</h2>
+      <div style="display: flex; flex-direction: column; gap: 12px">
+        <template data-sc="for" list="{{ events }}" as="ev">
+          <div style="{{ ev.rowStyle }}">
+            <div style="{{ ev.dateStyle }}">
+              <span style="font-size: 30px; font-weight: 800; line-height: 1">{{ ev.day }}</span>
+              <span style="font-size: 14px; font-weight: 700">{{ ev.mon }}</span>
+            </div>
+            <div style="flex: 1 1 320px; min-width: 0">
+              <p style="margin: 0; display: flex; gap: 10px; flex-wrap: wrap; align-items: center"><span style="font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: {{ ev.typeColour }}">{{ ev.typeLabel }}</span><span style="{{ ev.badgeStyle }}">{{ ev.badge }}</span></p>
+              <p style="margin: 6px 0 0; font-size: 19px; font-weight: 700">{{ ev.title }}</p>
+              <p style="margin: 4px 0 0; font-size: 15px; color: {{ ev.subColour }}">{{ ev.weekday }}  ·  {{ ev.time }}  ·  {{ ev.place }}</p>
+            </div>
+            <p style="margin: 0; font-size: 15px; font-weight: 600; min-width: 150px; color: {{ ev.subColour }}">{{ ev.spaces }}</p>
+            <a href="{{ ev.href }}" style="{{ ev.btnStyle }}">{{ ev.cta }}</a>
+          </div>
+        </template>
+      </div>
+      <p style="margin: 18px 0 0; font-size: 15px; color: #4B4A5C">Ambassador events are visible only to the ambassador cohort. Please don’t forward invitations.</p>
+    </section>
+  </main>
+</div>
+</template>
+<script type="text/plain" id="logic">
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { view: 'all' };
+  }
+  renderVals() {
+    var self = this;
+    var GOLD = '#C9A54C', GOLD_BRIGHT = '#E6CD86', GOLD_LIGHT = '#F6EFDD', GOLD_DEEP = '#7A5E1C';
+    var TYPES = {
+      tl: { label: 'Thought leadership', colour: '#C1D1FF' },
+      site: { label: 'Site visit', colour: '#F9E569' },
+      social: { label: 'Sports and social', colour: '#CDE6A7' },
+      drinks: { label: 'Drinks and dinner', colour: '#F7C8B3' },
+      conf: { label: 'Conference', colour: '#FFC66C' }
+    };
+    var ALL = [
+      { special: false, m: 11, d: 12, day: '12', mon: 'Nov', weekday: 'Thursday', type: 'tl', short: 'AI breakfast', title: 'Building in the age of AI: breakfast roundtable', time: '08:00–10:00', place: 'The Foundry Rooms, Southwark, London', spaces: '6 places left', status: 'booked' },
+      { special: false, m: 11, d: 18, day: '18', mon: 'Nov', weekday: 'Wednesday', type: 'site', short: 'Site tour', title: 'Site tour of 56 Bishops Avenue and talks from selected product manufacturers such as IGMS', time: '14:00–16:00', place: '56 Bishops Avenue, London N2', spaces: '9 places left', status: 'booked' },
+      { special: false, m: 11, d: 20, day: '20', mon: 'Nov', weekday: 'Friday', type: 'conf', short: 'Leaders Summit', title: 'London Construction Leaders Summit', time: '09:00–15:00', place: 'The Brewery, Chiswell Street, London', spaces: '4 places left', status: 'open' },
+      { special: true, m: 11, d: 24, day: '24', mon: 'Nov', weekday: 'Tuesday', type: 'drinks', short: 'Riverstone breakfast', title: 'Riverstone Living partners’ breakfast', time: '08:00–10:00', place: 'The Mercer Room, Clerkenwell, London', spaces: '4 ambassador places', status: 'invited' },
+      { special: false, m: 11, d: 26, day: '26', mon: 'Nov', weekday: 'Thursday', type: 'social', short: 'Five-a-side', title: 'Five-a-side with clients and consultants', time: '18:00–21:00', place: 'Canal Street Sports Club, King’s Cross, London', spaces: '12 places left', status: 'open' },
+      { special: true, m: 11, d: 27, day: '27', mon: 'Nov', weekday: 'Friday', type: 'site', short: 'Harbourline site walk', title: 'Site walk with Harbourline Homes’ land team', time: '10:00–12:00', place: '[Live Wates site], London', spaces: '3 ambassador places', status: 'open' },
+      { special: false, m: 12, d: 1, day: '1', mon: 'Dec', weekday: 'Tuesday', type: 'drinks', short: 'Winter drinks', title: 'Winter drinks with our consultant partners', time: '18:00–21:00', place: 'The Albion Rooftop, Shoreditch, London', spaces: '20 places left', status: 'open' },
+      { special: true, m: 12, d: 3, day: '3', mon: 'Dec', weekday: 'Thursday', type: 'drinks', short: 'Housing awards', title: 'London housing awards: Wates client table', time: '18:30–23:00', place: '[Awards venue], London', spaces: '2 ambassador places', status: 'open' }
+    ];
+    var v = this.state.view;
+    var shown = ALL.filter(function (e) { return v === 'all' || (v === 'special' ? e.special : !e.special); });
+
+    var seq = [], i;
+    for (i = 26; i <= 31; i++) seq.push({ m: 10, d: i });
+    for (i = 1; i <= 30; i++) seq.push({ m: 11, d: i });
+    for (i = 1; i <= 6; i++) seq.push({ m: 12, d: i });
+    var cells = seq.map(function (s, idx) {
+      var inMonth = s.m === 11;
+      var col = idx % 7;
+      var evs = shown.filter(function (e) { return e.m === s.m && e.d === s.d; }).map(function (e) {
+        var base = 'display: block; margin-top: 6px; padding: 6px 8px; border-radius: 10px; font-size: 13px; line-height: 1.25; text-decoration: none; ';
+        var pill = e.special
+          ? base + 'background: #2F2E3F; color: #FFFFFF; box-shadow: inset 0 0 0 2px ' + GOLD + ';'
+          : base + 'color: #2F2E3F; background: ' + TYPES[e.type].colour + ';' + (e.status === 'booked' ? ' box-shadow: inset 0 0 0 2px #2F2E3F;' : '');
+        return {
+          short: e.short,
+          time: e.time.split('–')[0],
+          mark: e.status === 'booked' ? '  ·  Booked' : (e.status === 'invited' ? '  ·  Invited' : ''),
+          tag: e.special ? 'Ambassador' : '',
+          tagStyle: e.special ? 'display: block; font-size: 10px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: ' + GOLD_BRIGHT + '; margin-bottom: 2px' : 'display: none',
+          href: e.special ? 'AmbassadorEvent.html' : 'Event.html',
+          pillStyle: pill
+        };
+      });
+      return {
+        n: String(s.d),
+        events: evs,
+        cellStyle: 'min-height: 120px; padding: 10px; box-sizing: border-box; border-bottom: 1px solid #E6E1D6;' + (col < 6 ? ' border-right: 1px solid #E6E1D6;' : '') + (inMonth ? '' : ' background: #FAF8F3;') + (col >= 5 ? ' background: #F6F3EC;' : ''),
+        numStyle: 'margin: 0; font-size: 15px; font-weight: 700; color: ' + (inMonth ? '#2F2E3F' : '#77768A') + ';'
+      };
+    });
+
+    var events = shown.map(function (e) {
+      var cta = e.status === 'invited' ? 'Invited · briefing' : e.status === 'booked' ? 'Booked · view' : (e.special ? 'Accept invitation' : 'Book my place');
+      var sp = e.special;
+      return Object.assign({}, e, {
+        typeLabel: TYPES[e.type].label,
+        typeColour: sp ? GOLD_BRIGHT : '#004156',
+        subColour: sp ? '#E4E2EC' : '#4B4A5C',
+        badge: sp ? 'Ambassador event' : 'Open to all',
+        badgeStyle: 'display: inline-block; padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 800; ' + (sp ? 'background: ' + GOLD + '; color: #2F2E3F;' : 'background: #FAF8F3; color: #2F2E3F; border: 1px solid #D9D4C7;'),
+        rowStyle: 'border-radius: 20px; padding: 18px 22px; display: flex; flex-wrap: wrap; align-items: center; gap: 20px; ' + (sp ? 'background: #2F2E3F; color: #FFFFFF; box-shadow: inset 0 0 0 2px ' + GOLD + ';' : 'background: #FFFFFF; color: #2F2E3F;'),
+        dateStyle: 'border-radius: 16px; width: 76px; min-height: 76px; display: flex; flex-direction: column; align-items: center; justify-content: center; ' + (sp ? 'background: ' + GOLD + '; color: #2F2E3F;' : 'background: ' + TYPES[e.type].colour + ';'),
+        cta: cta,
+        href: sp ? 'AmbassadorEvent.html' : 'Event.html',
+        btnStyle: 'display: inline-flex; align-items: center; min-height: 46px; padding: 0 20px; border-radius: 999px; font-weight: 800; font-size: 15px; text-decoration: none; ' + (sp ? 'background: ' + GOLD + '; color: #2F2E3F;' : 'background: #2F2E3F; color: #FFFFFF;')
+      });
+    });
+
+    var chipBase = 'min-height: 44px; padding: 0 18px; border-radius: 999px; font-family: inherit; font-size: 15px; font-weight: 700; cursor: pointer; ';
+    var views = [['all', 'All my events'], ['special', 'Ambassador events'], ['open', 'Open to all']].map(function (p) {
+      var on = v === p[0];
+      var onStyle = p[0] === 'special' ? 'background: #2F2E3F; color: ' + GOLD_BRIGHT + '; border: 2px solid ' + GOLD : 'background: #2F2E3F; color: #FFFFFF; border: 2px solid #2F2E3F';
+      return {
+        label: p[1],
+        pressed: on ? 'true' : 'false',
+        chipStyle: chipBase + (on ? onStyle : 'background: #FFFFFF; color: #2F2E3F; border: 2px solid #D9D4C7'),
+        pick: function () { self.setState({ view: p[0] }); }
+      };
+    });
+    return { events: events, views: views, cells: cells, weekdays: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'] };
+  }
+}
+</script>
+<a class="preview-tag" href="screens.html">Concept preview · sample content · all screens</a>
+<script src="dc.js"></script>
+</body>
+</html>
